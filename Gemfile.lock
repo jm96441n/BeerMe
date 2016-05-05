@@ -170,7 +170,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.15)
+  pg
   pry
   rails (= 4.2.6)
   react-rails
