@@ -128,6 +128,8 @@ GEM
       execjs
       rails (>= 3.2)
       tilt
+    responders (2.1.2)
+      railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -174,6 +176,7 @@ DEPENDENCIES
   pry
   rails (= 4.2.6)
   react-rails
+  responders
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
