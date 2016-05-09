@@ -7,7 +7,7 @@ class Beers < ActiveRecord::Migration
   		t.text :description
   		t.belongs_to :category, null: false
   		t.belongs_to :brewery, null: false
-  		t.belongs_to :style, null: false
+  		t.belongs_to :beer_style, null: false
   		t.timestamps null: false
   	end
   end

@@ -13,7 +13,7 @@ CSV.foreach(File.dirname(__FILE__) + "/openbeerdb_csv/beers.csv", options) do |r
 	beer[:description] = row[:descript]
 	beer[:category_id] = row[:cat_id].to_i
 	beer[:brewery_id] = row[:brewery_id].to_i
-	beer[:style_id] = row[:style_id]
+	beer[:beer_style_id] = row[:style_id]
 
 	Beer.create(beer)
 	p Beer.last.name
@@ -21,7 +21,7 @@ end
 
 CSV.foreach(File.dirname(__FILE__) + "/openbeerdb_csv/breweries.csv",options) do |row|
 	brew = Hash.new
-	
+
 	brew[:name] = row[:name]
 	brew[:address1] = row[:address1]
 	brew[:address2] = row[:address2] || ' '
@@ -53,6 +53,6 @@ CSV.foreach(File.dirname(__FILE__) + "/openbeerdb_csv/styles.csv", options) do |
 	style[:name] = row[:style_name]
 	style[:category_id] = row[:cat_id]
 
-	Style.create(style)
-	p Style.last.name
+	BeerStyle.create(style)
+	p BeerStyle.last.name
 end

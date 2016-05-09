@@ -1,4 +1,4 @@
-class Style < ActiveRecord::Base
+class BeerStyle < ActiveRecord::Base
 	belongs_to :category
 	has_many :beers
 

@@ -5,7 +5,7 @@ var PageContainer = React.createClass({
           allBeers: {},
           breweries: {},
           categories: {},
-          styles: {}
+          beerStyles: {}
     }
   },
   componentWillMount: function(){
@@ -53,12 +53,12 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
-  loadStylesFromServer: function(){
-    url: '/styles',
+  loadBeerStylesFromServer: function(){
+    url: '/styles/index',
     dataType: 'json',
     method: 'GET',
     success: function(styles){
-      this.setState({styles: styles})
+      this.setState({beerStyles: styles})
     }.bind(this),
     error: function(xhr,status,err){
       console.error(this.props.url,status,err)

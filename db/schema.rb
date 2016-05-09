@@ -11,21 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505005957) do
+ActiveRecord::Schema.define(version: 20160509204054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "beers", force: :cascade do |t|
+  create_table "beer_styles", force: :cascade do |t|
     t.string   "name",        null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "beers", force: :cascade do |t|
+    t.string   "name",          null: false
     t.float    "abv"
     t.integer  "ibu"
     t.text     "description"
-    t.integer  "category_id", null: false
-    t.integer  "brewery_id",  null: false
-    t.integer  "style_id",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "category_id",   null: false
+    t.integer  "brewery_id",    null: false
+    t.integer  "beer_style_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "breweries", force: :cascade do |t|
@@ -47,13 +54,6 @@ ActiveRecord::Schema.define(version: 20160505005957) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "styles", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
 end

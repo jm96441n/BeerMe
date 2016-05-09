@@ -1,7 +1,7 @@
-class StylesController < ApplicationController
+class BeerStylesController < ApplicationController
 
   def index
-    @styles =  Style.all
+    @styles =  BeerStyle.all
   end
 
 end
