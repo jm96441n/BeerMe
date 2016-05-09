@@ -1,12 +1,14 @@
-var LeftNav = react.createClass({
+var LeftNav = React.createClass({
     render: function(){
-      <div>
-        <ul>
-          <li><button> Beers </button></li>
-          <li><button>Categories</button></li>
-          <li><button>Styles</button></li>
-          <li><button>Breweries</button></li>
-        </ul>
-      </div>
+      return(
+        <div>
+          <ul>
+            <li><button>Beers</button></li>
+            <li><button>Categories</button></li>
+            <li><button>Styles</button></li>
+            <li><button>Breweries</button></li>
+          </ul>
+        </div>
+      )
     }
 })

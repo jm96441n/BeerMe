@@ -1,7 +1,7 @@
 class BeersController < ApplicationController
 
 	def index
-		@beers = Beer.includes(:category, :style, :brewery).all
+		@beers = Beer.includes(:category, :beer_style, :brewery).all
 	end
 
 	def random

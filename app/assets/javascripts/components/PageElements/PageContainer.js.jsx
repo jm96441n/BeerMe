@@ -12,11 +12,11 @@ var PageContainer = React.createClass({
     this.loadBeersFromServer()
     this.loadBreweriesFromServer()
     this.loadCategoriesFromServer()
-    this.loadStylesFromServer()
+    // this.loadBeerstylesFromServer()
   },
   loadBeersFromServer: function(){
     $.ajax({
-      url: '/beers',
+      url: '/beers/',
       dataType: 'json',
       method: 'GET',
       success: function(beers){
@@ -53,17 +53,17 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
-  loadBeerStylesFromServer: function(){
-    url: '/styles/index',
-    dataType: 'json',
-    method: 'GET',
-    success: function(styles){
-      this.setState({beerStyles: styles})
-    }.bind(this),
-    error: function(xhr,status,err){
-      console.error(this.props.url,status,err)
-    }.bind(this)
-  },
+  // loadBeerstylesFromServer: function(){
+  //   url: '/beer_styles',
+  //   dataType: 'json',
+  //   method: 'GET',
+  //   success: function(beerStyles){
+  //     this.setState({beerStyles: beerStyles})
+  //   }.bind(this),
+  //   error: function(xhr,status,err){
+  //     console.error(this.props.url,status,err)
+  //   }.bind(this)
+  // },
   render: function(){
     return(
       <LeftNav

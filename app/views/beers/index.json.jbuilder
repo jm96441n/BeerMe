@@ -1,3 +1,1 @@
-json.beers @beers, :id, :name, :abv, :ibu, 		:description, :brewery, :style, :category
-
-end
+json.beers @beers, :id, :name, :abv, :ibu, :description, :brewery, :beer_style, :category
