@@ -25,7 +25,7 @@ var PageContainer = React.createClass({
       error: function(xhr, status, err){
         console.error(this.props.url,status,err.toString())
       }.bind(this)
-    })
+    });
   },
   loadBreweriesFromServer: function(){
     $.ajax({
@@ -38,9 +38,32 @@ var PageContainer = React.createClass({
       error: function(xhr, status, err){
         console.error(this.props.url,status,err.toString())
       }.bind(this)
-    })
+    });
   },
-  loadCategoriesFromServer: function()
+  loadCategoriesFromServer: function(){
+    $.ajax({
+      url: '/categories',
+      dataType: 'json',
+      method: 'GET',
+      success: function(categories){
+        this.setState({categories: categories})
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
+    });
+  },
+  loadStylesFromServer: function(){
+    url: '/styles',
+    dataType: 'json',
+    method: 'GET',
+    success: function(styles){
+      this.setState({styles: styles})
+    }.bind(this),
+    error: function(xhr,status,err){
+      console.error(this.props.url,status,err)
+    }.bind(this)
+  },
   render: function(){
     return(
       <LeftNav
@@ -51,6 +74,4 @@ var PageContainer = React.createClass({
         />
     )
   }
-
-
-})
+});
