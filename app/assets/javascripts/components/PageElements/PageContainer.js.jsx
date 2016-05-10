@@ -2,17 +2,18 @@ var PageContainer = React.createClass({
   getInitialState: function(){
     return {
           selectedBeer: {},
-          allBeers: {},
-          breweries: {},
-          categories: {},
-          beerStyles: {}
+          allBeers: [],
+          breweries: [],
+          categories: [],
+          styles: [],
+          content: ''
     }
   },
   componentWillMount: function(){
     this.loadBeersFromServer()
     this.loadBreweriesFromServer()
     this.loadCategoriesFromServer()
-    // this.loadBeerstylesFromServer()
+    this.loadStylesFromServer()
   },
   loadBeersFromServer: function(){
     $.ajax({
@@ -40,6 +41,19 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
+  loadStylesFromServer: function(){
+    $.ajax({
+      url: '/beer_styles',
+      dataType: 'json',
+      method: 'GET',
+      success: function(beerStyles){
+        this.setState({beerStyles: beerStyles})
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url,status,err)
+      }.bind(this)
+    })
+  },
   loadCategoriesFromServer: function(){
     $.ajax({
       url: '/categories',
@@ -53,25 +67,23 @@ var PageContainer = React.createClass({
       }.bind(this)
     });
   },
-  // loadBeerstylesFromServer: function(){
-  //   url: '/beer_styles',
-  //   dataType: 'json',
-  //   method: 'GET',
-  //   success: function(beerStyles){
-  //     this.setState({beerStyles: beerStyles})
-  //   }.bind(this),
-  //   error: function(xhr,status,err){
-  //     console.error(this.props.url,status,err)
-  //   }.bind(this)
-  // },
+  getContent: function(content){
+    this.setState({content: content})
+  },
+
   render: function(){
     return(
-      <LeftNav
-        beers={this.state.allBeers}
-        breweries={this.state.breweries}
-        categories={this.state.categories}
-        styles={this.state.styles}
+      <div>
+        <LeftNav getContent={this.getContent}/>
+        <ContentContainer
+          beers={this.state.allBeers}
+          breweries={this.state.breweries}
+          categories={this.state.categories}
+          styles={this.state.styles}
+          selectedBeer={this.state.selectedBeer}
+          content={this.state.content}
         />
+      </div>
     )
   }
 });
