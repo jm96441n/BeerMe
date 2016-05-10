@@ -1,12 +1,18 @@
 var ContentContainer = React.createClass({
+  getInitialState: function(){
+    return{ beers: this.props.beers}
+  },
+  componentWillReceiveProps: function(nextProps){
+    this.setState({beers: nextProps.beers})
+  },
   render: function(){
     if(this.props.content == ''){
       return(
-        <h2>Here's some stuff</h2>
+        <BeerList beers={this.props.beers} />
       )
     }else if(this.props.content == 'beers'){
       return(
-        <h2>This is where all the beers go</h2>
+      <h2>Here's some stuff</h2>
       )
     }else if(this.props.content == 'style'){
       return(

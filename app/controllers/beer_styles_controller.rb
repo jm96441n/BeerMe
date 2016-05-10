@@ -1,7 +1,7 @@
 class BeerStylesController < ApplicationController
 
   def index
-    @styles =  BeerStyle.all
+    @styles =  BeerStyle.includes(:category).all
   end
 
 end
