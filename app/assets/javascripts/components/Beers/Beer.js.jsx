@@ -4,13 +4,13 @@ var Beer =  React.createClass({
       <li className="beer-list-item">
         <div>
           <p>Name: {this.props.beer.name}</p>
-
+          <p>Brewery: {this.props.beer.brewery.name}</p>
         </div>
       </li>
     )
   }
 })
-// 
+//
 // <p>ABV: {this.props.beer.abv}</p>
 // <p>IBU: {this.props.beer.ibu}</p>
 // <p>Brewery: {this.props.beer.brewery.name}</p>
