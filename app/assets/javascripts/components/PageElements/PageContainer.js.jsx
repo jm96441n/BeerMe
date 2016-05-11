@@ -10,10 +10,10 @@ var PageContainer = React.createClass({
     }
   },
   componentWillMount: function(){
+    this.loadStylesFromServer()
     this.loadBeersFromServer()
     this.loadBreweriesFromServer()
     this.loadCategoriesFromServer()
-    this.loadStylesFromServer()
   },
   loadBeersFromServer: function(){
     $.ajax({
@@ -79,7 +79,7 @@ var PageContainer = React.createClass({
           beers={this.state.allBeers}
           breweries={this.state.breweries}
           categories={this.state.categories}
-          styles={this.state.styles}
+          styles={this.state.beerStyles}
           selectedBeer={this.state.selectedBeer}
           content={this.state.content}
         />

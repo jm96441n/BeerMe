@@ -1,7 +1,9 @@
 var CategoryList = React.createClass({
   render: function(){
     var catNodes = this.props.categories.map(function(cat){
-      <Category id={cat.id} category={cat} />
+      return(
+        <Category key={cat.id} category={cat} />
+      )
     })
     return(
       <div>

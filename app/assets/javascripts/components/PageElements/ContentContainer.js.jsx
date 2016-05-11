@@ -1,9 +1,16 @@
 var ContentContainer = React.createClass({
   getInitialState: function(){
-    return{ beers: this.props.beers}
+    return{
+      beers: this.props.beers,
+      styles: this.props.styles
+    }
   },
   componentWillReceiveProps: function(nextProps){
-    this.setState({beers: nextProps.beers})
+    this.setState({
+      beers: nextProps.beers,
+      styles: nextProps.styles
+
+    })
   },
   render: function(){
     if(this.props.content == ''){
@@ -21,7 +28,7 @@ var ContentContainer = React.createClass({
       )
     }else if(this.props.content == 'cat'){
       return(
-        <CategoryList categories={this.props.categories}
+        <CategoryList categories={this.props.categories} />
       )
     }else if(this.props.content == 'randBeer'){
       return(
