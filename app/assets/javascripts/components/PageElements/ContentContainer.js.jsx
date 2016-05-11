@@ -8,19 +8,20 @@ var ContentContainer = React.createClass({
   render: function(){
     if(this.props.content == ''){
       return(
-        <BeerList beers={this.props.beers} />
+        <h2>Here's some stuff</h2>
       )
     }else if(this.props.content == 'beers'){
       return(
-      <h2>Here's some stuff</h2>
+        <BeerList beers={this.props.beers} />
+
       )
     }else if(this.props.content == 'style'){
       return(
-        <h2>This is where styles go</h2>
+        <StyleList styles={this.props.styles} />
       )
     }else if(this.props.content == 'cat'){
       return(
-        <h2>This is where categories go</h2>
+        <CategoryList categories={this.props.categories}
       )
     }else if(this.props.content == 'randBeer'){
       return(
