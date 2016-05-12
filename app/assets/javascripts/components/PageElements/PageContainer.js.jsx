@@ -1,7 +1,7 @@
 var PageContainer = React.createClass({
   getInitialState: function(){
     return {
-          selectedBeer: {},
+          selectedBeer: '',
           allBeers: [],
           breweries: [],
           categories: [],
@@ -9,77 +9,52 @@ var PageContainer = React.createClass({
           content: ''
     }
   },
-  componentWillMount: function(){
-    this.loadStylesFromServer()
-    this.loadBeersFromServer()
-    this.loadBreweriesFromServer()
-    this.loadCategoriesFromServer()
-  },
-  loadBeersFromServer: function(){
-    $.ajax({
-      url: '/beers/',
-      dataType: 'json',
-      method: 'GET',
-      success: function(beers){
-        this.setState({allBeers: beers});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.error(this.props.url,status,err.toString())
-      }.bind(this)
-    });
-  },
-  loadBreweriesFromServer: function(){
-    $.ajax({
-      url: '/breweries',
-      dataType: 'json',
-      method: 'GET',
-      success: function(breweries){
-        this.setState({breweries: breweries})
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.error(this.props.url,status,err.toString())
-      }.bind(this)
-    });
-  },
-  loadStylesFromServer: function(){
-    $.ajax({
-      url: '/beer_styles',
-      dataType: 'json',
-      method: 'GET',
-      success: function(beerStyles){
-        this.setState({beerStyles: beerStyles})
-      }.bind(this),
-      error: function(xhr,status,err){
-        console.error(this.props.url,status,err)
-      }.bind(this)
+  getBeers: function(beers){
+    this.setState({
+      allBeers: beers,
+      content: 'beers'
     })
   },
-  loadCategoriesFromServer: function(){
-    $.ajax({
-      url: '/categories',
-      dataType: 'json',
-      method: 'GET',
-      success: function(categories){
-        this.setState({categories: categories})
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.error(this.props.url,status,err.toString())
-      }.bind(this)
-    });
+  getBreweries: function(breweries){
+    this.setState({
+      breweries: breweries,
+      content: 'brewery'
+    })
   },
-  getContent: function(content){
-    this.setState({content: content})
+  getCategories: function(categories){
+    this.setState({
+      categories: categories,
+      content: 'cat'
+    })
   },
-
+  getStyles: function(styles){
+    this.setState({
+      styles: styles,
+      content: 'style'
+    })
+  },
+  getRandBeer: function(randBeer){
+    this.setState({
+      selectedBeer: randBeer,
+      content: 'randBeer'
+    })
+  },
   render: function(){
     return(
       <div>
-        <LeftNav getContent={this.getContent}/>
+        <LeftNav
+        getContent={this.getContent}
+        getBeers={this.getBeers}
+        getBreweries={this.getBreweries}
+        getCategories={this.getCategories}
+        getStyles={this.getStyles}
+        getRandBeer={this.getRandBeer}
+        />
         <ContentContainer
           beers={this.state.allBeers}
           breweries={this.state.breweries}
           categories={this.state.categories}
-          styles={this.state.beerStyles}
+          styles={this.state.styles}
           selectedBeer={this.state.selectedBeer}
           content={this.state.content}
         />

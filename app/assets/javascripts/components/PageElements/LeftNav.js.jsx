@@ -1,18 +1,93 @@
 var LeftNav = React.createClass({
+  // getInitialState: function(){
+  //   return {
+  //         selectedBeer: '',
+  //         allBeers: [],
+  //         breweries: [],
+  //         categories: [],
+  //         styles: [],
+  //         content: ''
+  //   }
+  // },
   handleRandBeerClick: function(){
-    this.props.getContent('randBeer')
+    this.loadRandomBeerFromServer()
   },
   handleCatClick: function(){
-    this.props.getContent('cat')
+    this.loadCategoriesFromServer()
   },
   handleStyleClick: function(){
-    this.props.getContent('style')
+    this.loadStylesFromServer()
   },
   handleBreweryClick: function(){
-    this.props.getContent('brewery')
+    this.loadBreweriesFromServer()
   },
   handleBeersClick: function(){
-    this.props.getContent('beers')
+    this.loadBeersFromServer()
+  },
+  loadBeersFromServer: function(){
+    $.ajax({
+      url: '/beers/',
+      dataType: 'json',
+      method: 'GET',
+      success: function(beers){
+        this.props.getBeers(beers)
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
+    });
+  },
+  loadBreweriesFromServer: function(){
+    $.ajax({
+      url: '/breweries',
+      dataType: 'json',
+      method: 'GET',
+      success: function(breweries){
+        this.props.getBreweries(breweries)
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
+    });
+  },
+  loadStylesFromServer: function(){
+    $.ajax({
+      url: '/beer_styles',
+      dataType: 'json',
+      method: 'GET',
+      success: function(beerStyles){
+        this.setState({beerStyles: beerStyles})
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url,status,err)
+      }.bind(this)
+    })
+  },
+  loadCategoriesFromServer: function(){
+    $.ajax({
+      url: '/categories',
+      dataType: 'json',
+      method: 'GET',
+      success: function(categories){
+        this.props.getCategories(categories)
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url,status,err.toString())
+      }.bind(this)
+    });
+  },
+  loadRandomBeerFromServer: function(){
+    $.ajax({
+      url: '/beers/random',
+      dataType: 'json',
+      method: 'GET',
+      success: function(beer){
+        this.props.getRandBeer(beer)
+      }.bind(this),
+      error: function(xhr,status,err){
+        console.error(this.props.url,status,err.toString())
+      }
+    })
   },
   render: function(){
     var self = this;

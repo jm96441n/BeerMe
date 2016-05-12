@@ -1,4 +1,10 @@
 var ContentContainer = React.createClass({
+  // getInitialState: function(){
+  //   return{selectedBeer: this.props.selectedBeer}
+  // },
+  // componentWillReceiveProps: function(nextProps){
+  //   this.setState({selectedBeer: nextProps.selectedBeer})
+  // },
   render: function(){
     if(this.props.content == ''){
       return(
@@ -19,7 +25,7 @@ var ContentContainer = React.createClass({
       )
     }else if(this.props.content == 'randBeer'){
       return(
-        <h2>This is where a random beer would go</h2>
+        <RandBeer beer={this.props.selectedBeer} />
       )
     }else if(this.props.content == 'brewery'){
       return(
