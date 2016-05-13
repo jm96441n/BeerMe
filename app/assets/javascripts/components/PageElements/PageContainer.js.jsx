@@ -39,6 +39,9 @@ var PageContainer = React.createClass({
       content: 'randBeer'
     })
   },
+  resetContent: function(){
+    this.setState({content: ''})
+  },
   render: function(){
     return(
       <div>
@@ -49,6 +52,7 @@ var PageContainer = React.createClass({
         getCategories={this.getCategories}
         getStyles={this.getStyles}
         getRandBeer={this.getRandBeer}
+        resetContent={this.resetContent}
         />
         <ContentContainer
           beers={this.state.allBeers}

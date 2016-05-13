@@ -22,8 +22,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'httparty'
 gem 'react-rails'
 gem "font-awesome-rails"
-gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # gem 'bootstrap'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

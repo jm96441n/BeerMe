@@ -24,6 +24,9 @@ var LeftNav = React.createClass({
   handleBeersClick: function(){
     this.loadBeersFromServer()
   },
+  handleNavClick: function(){
+    this.props.resetContent()
+  },
   loadBeersFromServer: function(){
     $.ajax({
       url: '/beers/',
@@ -92,15 +95,22 @@ var LeftNav = React.createClass({
   render: function(){
     var self = this;
     return(
-      <div>
-        <ul>
-          <li><button onClick={self.handleBeersClick}>Beers</button></li>
-          <li><button onClick={self.handleCatClick}>Categories</button></li>
-          <li><button onClick={self.handleStyleClick}>Styles</button></li>
-          <li><button onClick={self.handleBreweryClick}>Breweries</button></li>
-          <li><button onClick={self.handleRandBeerClick}>Random Beer</button></li>
-        </ul>
-      </div>
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+       <div class="navbar-header">
+           <a class="navbar-brand" href="#" onClick={self.handleNavClick}>BeerMe!</a>
+       </div>
+        <div className="navbar-default sidebar" role="navigation">
+          <div className="sidebar-nav navbar-collapse">
+            <ul className="nav nav-pills" id="side-menu">
+              <li><a className="btn btn-primary" onClick={self.handleBeersClick}>Beers</a></li>
+              <li><a className="btn btn-primary" onClick={self.handleCatClick}>Categories</a></li>
+              <li><a className="btn btn-primary" onClick={self.handleStyleClick}>Styles</a></li>
+              <li><a className="btn btn-primary" onClick={self.handleBreweryClick}>Breweries</a></li>
+              <li><a className="btn btn-primary" onClick={self.handleRandBeerClick}>Random Beer</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     )
   }
 })
