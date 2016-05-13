@@ -24,9 +24,7 @@ var LeftNav = React.createClass({
   handleBeersClick: function(){
     this.loadBeersFromServer()
   },
-  handleNavClick: function(){
-    this.props.resetContent()
-  },
+
   loadBeersFromServer: function(){
     $.ajax({
       url: '/beers/',
@@ -59,7 +57,7 @@ var LeftNav = React.createClass({
       dataType: 'json',
       method: 'GET',
       success: function(beerStyles){
-        this.setState({beerStyles: beerStyles})
+        this.props.getStyles(beerStyles)
       }.bind(this),
       error: function(xhr,status,err){
         console.error(this.props.url,status,err)
@@ -95,13 +93,10 @@ var LeftNav = React.createClass({
   render: function(){
     var self = this;
     return(
-      <nav class="navbar navbar-default navbar-static-top" role="navigation">
-       <div class="navbar-header">
-           <a class="navbar-brand" href="#" onClick={self.handleNavClick}>BeerMe!</a>
-       </div>
-        <div className="navbar-default sidebar" role="navigation">
+
+        <div className="sidebar" role="navigation">
           <div className="sidebar-nav navbar-collapse">
-            <ul className="nav nav-pills" id="side-menu">
+            <ul className="nav nav-pills nav-stacked" id="side-menu">
               <li><a className="btn btn-primary" onClick={self.handleBeersClick}>Beers</a></li>
               <li><a className="btn btn-primary" onClick={self.handleCatClick}>Categories</a></li>
               <li><a className="btn btn-primary" onClick={self.handleStyleClick}>Styles</a></li>
@@ -110,7 +105,6 @@ var LeftNav = React.createClass({
             </ul>
           </div>
         </div>
-      </nav>
     )
   }
 })

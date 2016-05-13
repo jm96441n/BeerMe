@@ -45,23 +45,32 @@ var PageContainer = React.createClass({
   render: function(){
     return(
       <div>
-        <LeftNav
-        getContent={this.getContent}
-        getBeers={this.getBeers}
-        getBreweries={this.getBreweries}
-        getCategories={this.getCategories}
-        getStyles={this.getStyles}
-        getRandBeer={this.getRandBeer}
-        resetContent={this.resetContent}
-        />
-        <ContentContainer
-          beers={this.state.allBeers}
-          breweries={this.state.breweries}
-          categories={this.state.categories}
-          styles={this.state.styles}
-          selectedBeer={this.state.selectedBeer}
-          content={this.state.content}
-        />
+          <nav className="navbar navbar-static-top row" role="navigation">
+            <TopNav resetContent={this.resetContent}/>
+          </nav>
+        <div className="row">
+          <div className="col-md-2">
+            <LeftNav
+              getContent={this.getContent}
+              getBeers={this.getBeers}
+              getBreweries={this.getBreweries}
+              getCategories={this.getCategories}
+              getStyles={this.getStyles}
+              getRandBeer={this.getRandBeer}
+              resetContent={this.resetContent}
+            />
+          </div>
+          <div className="col-md-10">
+            <ContentContainer
+              beers={this.state.allBeers}
+              breweries={this.state.breweries}
+              categories={this.state.categories}
+              styles={this.state.styles}
+              selectedBeer={this.state.selectedBeer}
+              content={this.state.content}
+            />
+          </div>
+        </div>
       </div>
     )
   }
