@@ -25,7 +25,7 @@ var ContentContainer = React.createClass({
       )
     }else if(this.props.content == 'randBeer'){
       return(
-        <RandBeer beer={this.props.selectedBeer} />
+        <RandBeer beer={this.props.randBeer} />
       )
     }else if(this.props.content == 'brewery'){
       return(

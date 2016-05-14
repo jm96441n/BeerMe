@@ -1,7 +1,7 @@
 var PageContainer = React.createClass({
   getInitialState: function(){
     return {
-          selectedBeer: '',
+          randBeer: '',
           allBeers: [],
           breweries: [],
           categories: [],
@@ -35,7 +35,7 @@ var PageContainer = React.createClass({
   },
   getRandBeer: function(randBeer){
     this.setState({
-      selectedBeer: randBeer,
+      randBeer: randBeer,
       content: 'randBeer'
     })
   },
@@ -66,7 +66,7 @@ var PageContainer = React.createClass({
               breweries={this.state.breweries}
               categories={this.state.categories}
               styles={this.state.styles}
-              selectedBeer={this.state.selectedBeer}
+              randBeer={this.state.randBeer}
               content={this.state.content}
             />
           </div>

@@ -59,6 +59,10 @@ a {
   margin-right: 10%;*/
   height: 100%;
 }
+.list-item{
+  width: 60%;
+  margin-bottom: 5%;
+}
 
 a:active,
 a:hover {
@@ -5725,6 +5729,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #dd4814;
+
 }
 .panel-primary > .panel-heading .badge {
   color: #dd4814;
