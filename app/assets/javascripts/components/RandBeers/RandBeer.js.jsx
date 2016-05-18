@@ -13,16 +13,18 @@ var RandBeer = React.createClass({
       style = this.props.beer.style.name
     }
     return(
-      <div className="jumbotron">
+      <div>
         <h2>Here's Your Beer!</h2>
-        <h3>{this.props.beer.name}</h3>
-        <p>Brewery: {this.props.beer.brewery.name}</p>
-        <p>Description: {description}</p>
-        <p>Category: {category}</p>
-        <p>Style: {style}</p>
-        <p>ABV: {this.props.beer.abv}</p>
-        <p>IBU: {this.props.beer.ibu}</p>
-        <p><a className="btn btn-primary btn-lg">Save This Beer</a></p>
+        <div className="jumbotron">
+          <h3>{this.props.beer.name}</h3>
+          <p>Brewery: {this.props.beer.brewery.name}</p>
+          <p>Description: {description}</p>
+          <p>Category: {category}</p>
+          <p>Style: {style}</p>
+          <p>ABV: {this.props.beer.abv}</p>
+          <p>IBU: {this.props.beer.ibu}</p>
+          <p><a className="btn btn-primary btn-lg">Save This Beer</a></p>
+        </div>
       </div>
     )
   }

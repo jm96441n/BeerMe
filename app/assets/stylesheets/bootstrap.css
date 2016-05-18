@@ -4983,6 +4983,7 @@ a.badge:focus {
   width: 60%;
   text-align: center;
   border: 1px solid gray;
+  border-radius: 5%;
 }
 .jumbotron h1,
 .jumbotron .h1 {

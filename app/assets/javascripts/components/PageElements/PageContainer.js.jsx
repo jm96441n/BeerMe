@@ -2,6 +2,7 @@ var PageContainer = React.createClass({
   getInitialState: function(){
     return {
           randBeer: '',
+          selectedBeer: '',
           allBeers: [],
           breweries: [],
           categories: [],

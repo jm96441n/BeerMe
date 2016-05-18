@@ -78,18 +78,30 @@ var LeftNav = React.createClass({
     });
   },
   loadRandomBeerFromServer: function(){
-    $.ajax({
-      url: '/beers/random',
-      dataType: 'json',
-      method: 'GET',
-      success: function(beer){
-        this.props.getRandBeer(beer)
-      }.bind(this),
-      error: function(xhr,status,err){
-        console.error(this.props.url,status,err.toString())
-      }
-    })
-  },
+  //   $.ajax({
+  //     url: '/beers/random',
+  //     dataType: 'json',
+  //     method: 'GET',
+  //     success: function(beer){
+  //       this.props.getRandBeer(beer)
+  //     }.bind(this),
+  //     error: function(xhr,status,err){
+  //       console.error(this.props.url,status,err.toString())
+  //     }
+  //   })
+  // },
+  $.ajax({
+    url: '/beer_styles',
+    dataType: 'json',
+    method: 'GET',
+    success: function(beerStyles){
+      this.props.getRandBeer(beerStyles)
+    }.bind(this),
+    error: function(xhr,status,err){
+      console.error(this.props.url,status,err)
+    }.bind(this)
+  })
+},
   render: function(){
     var self = this;
     return(
