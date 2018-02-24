@@ -42,6 +42,8 @@ gem 'active_model_serializers', '~> 0.10.0'
 # OJ gem for faster json serialization
 gem 'oj'
 
+# rubocop for style checking
+gem 'rubocop', '~> 0.52.1', require: false
 
 
 group :development, :test do
