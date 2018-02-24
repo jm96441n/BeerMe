@@ -1,0 +1,2 @@
+class BeerStyle < ApplicationRecord
+end
