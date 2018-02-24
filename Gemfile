@@ -17,8 +17,6 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'mini_racer'
 
 # React on rails for a better react experience
 gem 'react_on_rails', '~> 10.0.2'
@@ -37,6 +35,14 @@ gem 'acts_as_addressable', git: 'git@github.com:mobilityhouse/acts_as_addressabl
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Active model serializer for json serialization
+gem 'active_model_serializers', '~> 0.10.0'
+
+# OJ gem for faster json serialization
+gem 'oj'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
