@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby "2.5.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -19,16 +20,20 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# React on rails for a better react experience
+gem "react_on_rails", "10.0.0"
+
+# webpacker to handle webpack
+gem "webpacker", "~> 3.0"
+
+# Typescript for make js typed
+gem 'typescript-rails'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+# Acts as addressable gem for addresses
+gem 'acts_as_addressable', git: 'git@github.com:mobilityhouse/acts_as_addressable.git'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -36,9 +41,20 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
+  # Rspec for testing
+  gem 'rspec-rails', '~> 3.7'
+  
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  
   gem 'selenium-webdriver'
+end
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
 end
 
 group :development do
