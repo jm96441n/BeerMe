@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # React on rails for a better react experience
-gem "react_on_rails", "10.0.0"
+gem "react_on_rails", "~> 10.0.2"
 
 # webpacker to handle webpack
 gem "webpacker", "~> 3.0"
