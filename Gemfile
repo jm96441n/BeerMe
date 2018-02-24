@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.4.1"
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -18,13 +18,13 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'mini_racer'
 
 # React on rails for a better react experience
-gem "react_on_rails", "~> 10.0.2"
+gem 'react_on_rails', '~> 10.0.2'
 
 # webpacker to handle webpack
-gem "webpacker", "~> 3.0"
+gem 'webpacker', '~> 3.0'
 
 # Typescript for make js typed
 gem 'typescript-rails'
@@ -68,3 +68,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby
