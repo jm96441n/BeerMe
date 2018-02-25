@@ -63,6 +63,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
 
   gem 'selenium-webdriver'
+
+  # factory bot to stub models
+  gem 'factory_bot_rails'
 end
 
 group :test do
