@@ -45,17 +45,23 @@ gem 'oj'
 # rubocop for style checking
 gem 'rubocop', '~> 0.52.1', require: false
 
+# Bootstrap because I can't style
+gem 'bootstrap', '~> 4.0.0'
+
+# JQuery because bootstrap needs it
+gem 'jquery-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  
+
   # Rspec for testing
   gem 'rspec-rails', '~> 3.7'
-  
+
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  
+
   gem 'selenium-webdriver'
 end
 
