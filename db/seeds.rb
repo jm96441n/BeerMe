@@ -11,12 +11,12 @@ CSV.foreach(File.dirname(__FILE__) + "/openbeerdb_csv/beers.csv", options) do |r
 	beer[:abv] = row[:abv].to_f
 	beer[:ibu] = row[:ibu].to_i
 	beer[:description] = row[:descript]
-	beer[:category_id] = row[:cat_id].to_i
 	beer[:brewery_id] = row[:brewery_id].to_i
 	beer[:beer_style_id] = row[:style_id]
 
-	Beer.create(beer)
-	p Beer.last.name
+	b = Beer.new(beer)
+	b.save
+	p b.name
 end
 
 CSV.foreach(File.dirname(__FILE__) + "/openbeerdb_csv/breweries.csv",options) do |row|
