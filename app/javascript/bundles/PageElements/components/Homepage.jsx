@@ -14,14 +14,16 @@ export default class Homepage extends React.Component {
     let buttonNodes = this.state.buttons.map( (button_text) => {
       i += 1;
       return (
-        <HomepageButton
-          button_text={button_text}
-          id={i}
-        />
+        <div className='col-md-3 col-md-offset-3'>
+          <HomepageButton
+            button_text={button_text}
+            id={i}
+          />
+        </div>
       )
     })
     return (
-      <div>
+      <div className='row'>
         {buttonNodes}
       </div>
     )
