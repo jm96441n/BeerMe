@@ -6,13 +6,13 @@ Feature: When a user first visits the site they will be greeted by a homepage sh
       | Irish Ale         |
       | German Ale        |
       | International Ale |
-  @Headed
+  @javascript
   Scenario: A user first visits the homepage
     When I visit the home page
     Then I should see "Find by Category"
     And I should see "Give me a Random Beer"
 
-  @Headed
+  @javascript
   Scenario: A user can navigate to the category list page
     When I visit the home page
     And I click the "Find by Category" button

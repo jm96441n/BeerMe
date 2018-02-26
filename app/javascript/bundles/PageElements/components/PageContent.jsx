@@ -34,6 +34,12 @@ export default class PageContent extends React.Component {
       method: 'GET',
       url: '/categories.json',
       responseType: 'json'
+    }).then((response) => {
+      let categories = response['data']['data']
+      this.setState({
+        page: 'Categories',
+        categories: categories
+      })
     })
   }
 

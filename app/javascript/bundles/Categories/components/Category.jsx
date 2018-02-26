@@ -10,10 +10,7 @@ export default class Category extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: this.props.name,
-      id: this.props.id
-    }
+    this.state = { }
   }
 
   render() {
@@ -22,9 +19,9 @@ export default class Category extends React.Component {
         <button
           type='button'
           className='btn btn-primary'
-          id={this.state.id}
+          id={this.props.id}
         >
-          {this.state.name}
+          {this.props.name}
         </button>
       </div>
     )

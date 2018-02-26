@@ -16,6 +16,6 @@ end
 
 And /^I should see a list of buttons with text:$/ do |table|
   table.hashes.each do |hash|
-    page.find('button', text: hash[:'Category Name'])
+    find('button', text: hash[:'Category Name'])
   end
 end

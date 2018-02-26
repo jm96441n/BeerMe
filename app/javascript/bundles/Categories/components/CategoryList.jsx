@@ -9,18 +9,24 @@ export default class CategoryList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { categories: this.props.categories }
+    this.state = { }
   }
 
   render () {
-    let categoryNodes = this.state.categories.map((category) => {
+    let categoryNodes = this.props.categories.map((category) => {
       return (
         <Category
-          name={category['name']}
-          id={category['id']}
-          key={category['id']}
+          name={category['attributes']['name']}
+          id={category['attributes']['id']}
+          key={category['attributes']['id']}
         />
       )
     })
+
+    return (
+      <div>
+        {categoryNodes}
+      </div>
+    )
   }
 }
