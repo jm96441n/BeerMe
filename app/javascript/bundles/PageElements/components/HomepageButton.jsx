@@ -5,40 +5,35 @@ export default class HomepageButton extends React.Component {
   static propTypes = {
     button_text: PropTypes.string.isRequired, // this is passed in from the Homepage component
     id: PropTypes.number.isRequired,
+    director: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
   };
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      button_text: this.props.button_text,
-      id: this.props.id
-    }
-    this.onClick = this.onClick.bind(this)
+    this.state = { };
   }
 
-  onClick(text) {
-    switch(text) {
-      case 'Find by Category':
-        this.props.onClick('Categories')
-        break;
-      case 'Give me a Random Beer':
-        this.props.onClick('Random')
-        break;
-    }
+  handleClick = () => {
+    this.props.onClick(this.props.director);
   }
 
-  render () {
+  inputNode() {
     return (
       <button
         type='button'
         className='btn btn-primary'
-        id={this.state.id}
-        onClick={ this.onClick(this.state.button_text) }
+        onClick={this.handleClick}
       >
-        {this.state.button_text}
+        {this.props.button_text}
       </button>
+    )
+  }
+
+  render() {
+    return(
+      this.inputNode()
     )
   }
 }

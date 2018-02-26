@@ -18,6 +18,7 @@ export default class CategoryList extends React.Component {
         <Category
           name={category['name']}
           id={category['id']}
+          key={category['id']}
         />
       )
     })

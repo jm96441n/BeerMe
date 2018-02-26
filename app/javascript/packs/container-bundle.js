@@ -1,8 +1,10 @@
 import ReactOnRails from 'react-on-rails';
 
 import Container from '../bundles/Container/components/Container';
+import PageContent from '../bundles/PageElements/components/PageContent';
+import Homepage from '../bundles/PageElements/components/PageContent';
+import HomepageButton from '../bundles/PageElements/components/HomepageButton';
 
-// This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
   Container,
 });

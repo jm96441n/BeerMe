@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import request from 'axios';
 import Homepage from './Homepage.jsx';
 import CategoryList from '../../Categories/components/CategoryList.jsx'
 
@@ -7,11 +8,12 @@ export default class PageContent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { page: 'Home' }
-    this.switchPage = this.switchPage.bind(this)
+    this.state = {
+      page: 'Home'
+    }
   }
 
-  switchPage(page) {
+  switchPage = (page) => {
     switch(page) {
       case 'Categories':
         this.getCategories();
@@ -22,21 +24,21 @@ export default class PageContent extends React.Component {
     }
   }
 
-  setHome() {
+  setHome = () => {
     this.setState({ page: 'Home' })
   }
 
-  getCategories() {
+  getCategories = () => {
     var self = this;
+    return request({
+      method: 'GET',
+      url: '/categories.json',
+      responseType: 'json'
+    })
+  }
 
-    fetch('/categories.json').then((response) => {
-      return response.json();
-    }).then((response) => {
-      self.setState({
-        categories: response,
-        page: 'Categories'
-      });
-    });
+  onHomepageButtonClick = (page) => {
+    this.switchPage(page)
   }
 
   render () {
@@ -47,9 +49,11 @@ export default class PageContent extends React.Component {
         />
       )
     }else {
+      const homeButtonsText = ['Find by Category', 'Give me a Random Beer']
       return (
         <Homepage
-          onButtonClick={ this.switchPage }
+          buttonsText={homeButtonsText}
+          onButtonClick={ this.onHomepageButtonClick }
         />
       )
     }

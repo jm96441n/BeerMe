@@ -4,7 +4,7 @@ import React from 'react';
 export default class Category extends React.Component {
   static proptypes = {
     name: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
   }
 
   constructor(props) {
