@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :beer
+  has_many :beer_styles
 end

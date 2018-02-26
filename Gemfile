@@ -36,8 +36,8 @@ gem 'acts_as_addressable', git: 'git@github.com:mobilityhouse/acts_as_addressabl
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Active model serializer for json serialization
-gem 'active_model_serializers', '~> 0.10.0'
+# fast_jsonapi for faster json serialization
+gem 'fast_jsonapi'
 
 # OJ gem for faster json serialization
 gem 'oj'
@@ -66,6 +66,9 @@ group :development, :test do
 
   # factory bot to stub models
   gem 'factory_bot_rails'
+
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do
