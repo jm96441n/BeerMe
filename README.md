@@ -35,4 +35,5 @@ To get this application up and running locally:
 ### Running Specs/Scenarios
 
 For the specs you need to run `bundle exec rspec`
+
 For the scenarios you need to run `bundle exec cucumber`
