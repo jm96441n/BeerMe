@@ -3,7 +3,8 @@ import React from 'react';
 
 export default class SidemenuButton extends React.Component {
   static propTypes = {
-    buttonText: PropTypes.string.isRequired
+    buttonText: PropTypes.string.isRequired,
+    linkTo: PropTypes.string.isRequired
   }
 
   constructor(props) {
@@ -12,9 +13,11 @@ export default class SidemenuButton extends React.Component {
 
   render() {
     return (
-      <li className='list-group-item d-flex justify-content-between align-items-center'>
-        {this.props.buttonText}
-      </li>
+      <a href={this.props.linkTo}>
+        <li className='list-group-item d-flex justify-content-between align-items-center'>
+          {this.props.buttonText}
+        </li>
+      </a>
     )
   }
 }

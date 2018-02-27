@@ -26,7 +26,7 @@ export default class BeerList extends React.Component {
       )
     })
     return (
-      <table className='table table-hover'>
+      <table className='table table-hover' id='beer-list'>
         <thead>
           <tr>
             <th scope='col'>
