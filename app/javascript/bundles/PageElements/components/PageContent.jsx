@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import request from 'axios';
 import Homepage from './Homepage.jsx';
-import CategoryList from '../../Categories/components/CategoryList.jsx'
+import BeerList from '../../Beers/components/BeerList.jsx'
 
 export default class PageContent extends React.Component {
   constructor(props) {
@@ -28,17 +28,17 @@ export default class PageContent extends React.Component {
     this.setState({ page: 'Home' })
   }
 
-  getCategories = () => {
+  getBeers = () => {
     var self = this;
     return request({
       method: 'GET',
-      url: '/categories.json',
+      url: '/beers.json',
       responseType: 'json'
     }).then((response) => {
-      let categories = response['data']['data']
+      let beers = response['data']['data']
       this.setState({
-        page: 'Categories',
-        categories: categories
+        page: 'BeerList',
+        beers: beers
       })
     })
   }
@@ -48,10 +48,10 @@ export default class PageContent extends React.Component {
   }
 
   render () {
-    if( this.state.categories ) {
+    if( this.state.beers ) {
       return (
-        <CategoryList
-          categories={ this.state.categories }
+        <BeerList
+          beers={ this.state.beers }
         />
       )
     }else {
