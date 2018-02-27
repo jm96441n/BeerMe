@@ -45,7 +45,7 @@ gem 'oj'
 # rubocop for style checking
 gem 'rubocop', '~> 0.52.1', require: false
 
-# Bootstrap because I can't style
+# Bootstrap styling is hard
 gem 'bootstrap', '~> 4.0.0'
 
 # JQuery because bootstrap needs it

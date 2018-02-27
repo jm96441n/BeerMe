@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+}
+
+#sidebar {
+  position: absolute;
+  min-width: 250px;
+  max-width: 250px;
+  height: 93%;
+  border-right: 1px solid rgba(0,0,0,0.125);
+}
+
+#page_content {
+  width: 80%;
+  margin-left: 250px;
+}

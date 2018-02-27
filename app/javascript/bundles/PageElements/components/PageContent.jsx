@@ -55,12 +55,8 @@ export default class PageContent extends React.Component {
         />
       )
     }else {
-      const homeButtonsText = ['Find by Category', 'Give me a Random Beer']
       return (
-        <Homepage
-          buttonsText={homeButtonsText}
-          onButtonClick={ this.onHomepageButtonClick }
-        />
+        <Homepage />
       )
     }
   }
