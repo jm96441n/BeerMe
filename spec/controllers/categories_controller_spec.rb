@@ -13,7 +13,7 @@ describe CategoriesController, type: :controller do
     it 'returns a json array of the categories' do
       get :index, format: :json
 
-      body   = json(response.body)
+      body = json(response.body)
 
       expect(response).to be_success
       expect(body.length).to eql 2
