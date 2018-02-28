@@ -19,14 +19,26 @@ And /^I click "([^"]*)"$/ do |link_text|
   find('a', text: link_text).click
 end
 
-Then /^I should see the following beers in the table:$/ do |table|
-  table_results = page.find('#beer-list tr').map do |row|
-    row.children.map do |cell|
-      cell.text
-    end
+Then /^I should see the following beers in the table:$/ do |expected_table|
+  page.find('#beer-list')
+
+  actual_table = [[]]
+
+  all('#beer-list thead tr th').each do |cell|
+    actual_table[0] << cell.text
   end
 
-  expect_table.diff!(table_results)
+  all('#beer-list tbody tr th').each do |cell|
+    actual_table << [cell.text]
+  end
+
+  i = 1
+  all('#beer-list tbody tr td').each_with_index do |cell, index|
+    actual_table[i] << cell.text
+    i += 1 if index.odd? && index > 0
+  end
+
+  expected_table.diff!(actual_table)
 end
 
 def create_model(model, hash)

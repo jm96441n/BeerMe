@@ -5,5 +5,6 @@ FactoryBot.define do
     ibu 92
     association :brewery
     association :beer_style
+    association :category
   end
 end
