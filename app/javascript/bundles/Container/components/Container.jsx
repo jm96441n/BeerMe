@@ -14,8 +14,8 @@ export default class Container extends React.Component {
       <div>
         <Header />
         <Sidemenu />
-        <div id='page_content'>
-          <div className='container'>
+        <div className='container page_container'>
+          <div id='page_content' className='h-100'>
             <PageContent />
           </div>
         </div>
