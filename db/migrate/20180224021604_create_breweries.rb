@@ -5,6 +5,7 @@ class CreateBreweries < ActiveRecord::Migration[5.1]
       t.string :phone
       t.string :website
       t.string :description
+      t.integer :external_id, null: false
       t.timestamps
     end
   end

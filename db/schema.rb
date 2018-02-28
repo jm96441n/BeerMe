@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180224223210) do
   create_table "beer_styles", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "category_id"
+    t.integer "external_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_beer_styles_on_category_id"
@@ -44,12 +45,15 @@ ActiveRecord::Schema.define(version: 20180224223210) do
     t.float "abv"
     t.integer "ibu"
     t.text "description"
-    t.bigint "brewery_id", null: false
-    t.bigint "beer_style_id", null: false
+    t.bigint "brewery_id"
+    t.bigint "beer_style_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["beer_style_id"], name: "index_beers_on_beer_style_id"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+    t.index ["category_id"], name: "index_beers_on_category_id"
+    t.index ["name"], name: "index_beers_on_name"
   end
 
   create_table "breweries", force: :cascade do |t|
@@ -57,12 +61,14 @@ ActiveRecord::Schema.define(version: 20180224223210) do
     t.string "phone"
     t.string "website"
     t.string "description"
+    t.integer "external_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "external_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
