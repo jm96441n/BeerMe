@@ -1,3 +1,5 @@
+$hover_color: #F0D860;
+
 body {
   height: 100vh;
 }
@@ -6,3 +8,14 @@ body {
   height: 80vh;
 }
 
+.header-link {
+  color: black;
+}
+
+.header-link:hover {
+  color: $hover_color;
+}
+
+a:hover {
+   color: $hover_color !important;
+}

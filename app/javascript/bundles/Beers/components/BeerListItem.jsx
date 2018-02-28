@@ -25,10 +25,10 @@ export default class BeerListItem extends React.Component {
         <th scope='row'>
           {this.props.name}
         </th>
-        <td>
+        <td className="text-center">
           {this.props.abv}%
         </td>
-        <td>
+        <td className="text-center">
           {this.props.ibu}
         </td>
       </tr>

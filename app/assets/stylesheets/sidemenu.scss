@@ -6,11 +6,16 @@
   position: absolute;
   min-width: 250px;
   max-width: 250px;
-  height: 93%;
+  height: 93.5%;
   border-right: 1px solid rgba(0,0,0,0.125);
+  background-color: black;
 }
 
 #page_content {
   width: 80%;
   margin-left: 250px;
+}
+
+.list-group-item {
+  background-color: black;
 }

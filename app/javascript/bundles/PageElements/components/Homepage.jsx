@@ -68,7 +68,7 @@ export default class Homepage extends React.Component {
             <div className='row'>
               <div className='col-md-8 offset-md-1'>
                 <h4 className='text-center'>
-                  Cheers < i class="em em-beers" ></i > !
+                  Cheers < i className="em em-beers" ></i > !
                 </h4>
               </div>
             </div>
