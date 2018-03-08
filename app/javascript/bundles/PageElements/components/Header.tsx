@@ -1,8 +1,7 @@
 import React from 'react';
 
 interface IHeaderProps {
-  onClick: () => void,
-
+  onClick: () => void;
 }
 
 export default class Header extends React.Component<IHeaderProps, {}> {
@@ -10,16 +9,15 @@ export default class Header extends React.Component<IHeaderProps, {}> {
     super(props);
   }
 
-  public onClick = (e: MouseEvent) => {
-    e.preventDefault();
-
-    this.props.onClick()
+  public onClick = (event: any) => {
+    event.preventDefault();
+    this.props.onClick();
   }
 
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbark-dark bg-primary">
-          <a href="" onClick={ e => this.onClick } className="header-link">
+          <a href="" onClick={this.onClick} className="header-link">
             <h3>
               BeerMe!
             </h3>
