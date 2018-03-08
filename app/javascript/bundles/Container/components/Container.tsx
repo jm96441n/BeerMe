@@ -8,7 +8,8 @@ interface IContainerProps { }
 
 const initialState: IContainerState = {
   page: 'home',
-  beers: []
+  beers: [],
+  beer: {} as IBeer
 }
 
 export default class Container extends React.Component<IContainerProps, IContainerState> {
@@ -23,7 +24,7 @@ export default class Container extends React.Component<IContainerProps, IContain
         this.getBeers();
         break;
       case 'random':
-        this.setHome();
+        this.getRandomBeer();
         break;
     }
   }
@@ -31,7 +32,8 @@ export default class Container extends React.Component<IContainerProps, IContain
   setHome = () => {
     this.setState({
       page: 'home',
-      beers: []
+      beers: [],
+      beer: {} as IBeer
     } as IContainerState)
   }
 
@@ -45,7 +47,25 @@ export default class Container extends React.Component<IContainerProps, IContain
       let beers = response['data']['records']
       this.setState({
         page: 'beers',
-        beers: beers
+        beers: beers,
+        beer: {} as IBeer
+      } as IContainerState)
+    })
+  }
+
+  getRandomBeer = () => {
+    var self = this;
+    return request({
+      method: 'GET',
+      url: '/random_beer.json',
+      responseType: 'json'
+    }).then((response) => {
+      let beer = response['data']['record']
+      debugger;
+      this.setState({
+        page: 'random',
+        beers: [],
+        beer: beer
       } as IContainerState)
     })
   }
@@ -58,8 +78,9 @@ export default class Container extends React.Component<IContainerProps, IContain
         <div className='container page_container'>
           <div id='page_content' className='h-100'>
             <PageContent
-              page={this.state.page}
-              beers={this.state.beers}
+              page={ this.state.page }
+              beers={ this.state.beers }
+              beer={ this.state.beer }
             />
           </div>
         </div>
