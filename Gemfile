@@ -24,9 +24,6 @@ gem 'react_on_rails', '~> 10.0.2'
 # webpacker to handle webpack
 gem 'webpacker', '~> 3.0'
 
-# Typescript for make js typed
-gem 'typescript-rails'
-
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 

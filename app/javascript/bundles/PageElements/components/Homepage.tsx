@@ -1,32 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-export default class Homepage extends React.Component {
+export default class Homepage extends React.Component<{}, {}> {
   // static propTypes = {
   //   onButtonClick: PropTypes.func.isRequired,
   //   buttonsText: PropTypes.array.isRequired
   // }
-  constructor(props) {
+  constructor(props: Object) {
     super(props);
     this.state = { }
   }
-
-  // onClick = (page) => {
-  //   this.props.onButtonClick(page);
-  // }
-
-  // getButtonDirector = (text) => {
-  //   let director = ''
-  //   switch (text) {
-  //     case 'Give me a Random Beer':
-  //       director = 'Random'
-  //       break;
-  //     case 'Find by Category':
-  //       director = 'Categories'
-  //       break;
-  //   }
-  //   return(director)
-  // }
 
   render() {
     return (

@@ -1,20 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import BeerListItem from './BeerListItem.jsx';
+import BeerListItem from './BeerListItem';
 
-export default class BeerList extends React.Component {
-  static propTypes = {
-    beers: PropTypes.array.isRequired
-  }
+interface IBeer {
+  name: string,
+  abv: number,
+  ibu: number,
+  id: number
+}
 
-  constructor(props) {
+interface IBeerListProps {
+  beers: Array<IBeer>
+}
+
+export default class BeerList extends React.Component<IBeerListProps> {
+
+  constructor(props: IBeerListProps) {
     super(props);
-
-    this.state = {}
   }
 
-  render() {
-    let beerNodes = this.props.beers.map((beer, index) => {
+  public render(): JSX.Element {
+    let beerNodes = this.props.beers.map((beer: IBeer, index: number) => {
       return (
         <BeerListItem
           id={index}

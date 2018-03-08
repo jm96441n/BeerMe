@@ -1,20 +1,35 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import request from 'axios';
-import PageContent from '../../PageElements/components/PageContent.jsx'
-import Header from '../../PageElements/components/Header.jsx'
-import Sidemenu from '../../PageElements/components/Sidemenu.jsx'
+import PageContent from '../../PageElements/components/PageContent'
+import Header from '../../PageElements/components/Header'
+import Sidemenu from '../../PageElements/components/Sidemenu'
 
-export default class Container extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      page: 'home',
-      beers: []
-    }
+interface IBeer {
+  name: string,
+  abv: number,
+  ibu: number,
+  id: number
+}
+
+interface IContainerProps { }
+
+interface IContainerState {
+  page: string,
+  beers: Array<IBeer>
+}
+
+const initialState: IContainerState = {
+  page: 'home',
+  beers: []
+}
+
+export default class Container extends React.Component<IContainerProps, IContainerState> {
+  constructor(props: IContainerProps){
+    super(props);
+    this.state = initialState;
   }
 
-  onSideBarClick = (page) => {
+  onSideBarClick = (page: string) => {
     switch (page) {
       case 'beers':
         this.getBeers();

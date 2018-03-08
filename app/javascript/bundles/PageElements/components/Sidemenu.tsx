@@ -1,25 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import SidemenuButton from './SidemenuButton.jsx'
+import SidemenuButton from './SidemenuButton'
 
-export default class Sidemenu extends React.Component {
-  static propTypes = {
-    onClick: PropTypes.func.isRequired
-  }
+interface ISidemenuProps {
+  onClick: (page: string) => void
+}
 
-  constructor(props) {
+export default class Sidemenu extends React.Component<ISidemenuProps, {}> {
+
+  constructor(props: ISidemenuProps) {
     super(props);
 
     this.state = { }
   }
 
-  onClick = (page) => {
+  onClick = (page: string) => {
     this.props.onClick(page)
   }
 
   render() {
     const buttonTexts = ['Find a Beer', 'Get a Random Beer']
-    let buttonNodes = buttonTexts.map((text) => {
+    let buttonNodes = buttonTexts.map((text: string) => {
       let link = '';
       switch (text) {
         case 'Find a Beer':
