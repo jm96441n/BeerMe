@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :categories, only: :index
 
   resources :beers, only: :index
+
+  resource :random_beer, only: :show
 end
