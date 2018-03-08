@@ -1,13 +1,5 @@
 import React from 'react';
 import BeerListItem from './BeerListItem';
-
-interface IBeer {
-  name: string,
-  abv: number,
-  ibu: number,
-  id: number
-}
-
 interface IBeerListProps {
   beers: Array<IBeer>
 }

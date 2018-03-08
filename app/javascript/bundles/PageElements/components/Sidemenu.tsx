@@ -1,10 +1,6 @@
 import React from 'react';
 import SidemenuButton from './SidemenuButton'
 
-export interface ISidemenuProps {
-  onClick: (page: string) => any;
-}
-
 export default class Sidemenu extends React.Component<ISidemenuProps, {}> {
 
   constructor(props: ISidemenuProps) {

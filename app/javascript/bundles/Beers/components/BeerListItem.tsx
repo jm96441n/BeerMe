@@ -1,12 +1,4 @@
 import React from 'react';
-
-interface IBeerProps {
-  name: string,
-  abv: number,
-  ibu: number,
-  id: number
-}
-
 export default class BeerListItem extends React.Component<IBeerProps, {}> {
 
   constructor(props: IBeerProps) {

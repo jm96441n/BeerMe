@@ -1,11 +1,5 @@
 import React from 'react';
 
-export interface ISidemenuButtonProps {
-  buttonText: string;
-  linkTo: string;
-  onClick: (page: string) => void;
-}
-
 export default class SidemenuButton extends React.Component<ISidemenuButtonProps, {}> {
   constructor(props: ISidemenuButtonProps) {
     super(props);

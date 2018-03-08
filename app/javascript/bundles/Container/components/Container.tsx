@@ -4,19 +4,7 @@ import PageContent from '../../PageElements/components/PageContent'
 import Header from '../../PageElements/components/Header'
 import Sidemenu from '../../PageElements/components/Sidemenu'
 
-interface IBeer {
-  name: string;
-  abv: number;
-  ibu: number;
-  id: number;
-}
-
 interface IContainerProps { }
-
-interface IContainerState {
-  page: string;
-  beers: Array<IBeer>;
-}
 
 const initialState: IContainerState = {
   page: 'home',
