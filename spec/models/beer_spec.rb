@@ -6,17 +6,12 @@ describe Beer, type: :model do
   let(:brewery) { double('Brewery') }
   subject(:beer) { Beer.new() }
 
-  describe '.category' do
+  describe '#get_random' do
     before do
-      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:random).and_return(beer)
     end
-
-    it 'returns the beers category' do
-      expect(beer.category).to eql category
-    end
-
-    it 'returns the category of the beers beer style' do
-      expect(beer.category).to eql beer_style.category
+    it 'should retrieve a random beer' do
+      expect(Beer.random).to eql beer
     end
   end
 end
