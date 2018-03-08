@@ -5,17 +5,17 @@ import Header from '../../PageElements/components/Header'
 import Sidemenu from '../../PageElements/components/Sidemenu'
 
 interface IBeer {
-  name: string,
-  abv: number,
-  ibu: number,
-  id: number
+  name: string;
+  abv: number;
+  ibu: number;
+  id: number;
 }
 
 interface IContainerProps { }
 
 interface IContainerState {
-  page: string,
-  beers: Array<IBeer>
+  page: string;
+  beers: Array<IBeer>;
 }
 
 const initialState: IContainerState = {
@@ -44,7 +44,7 @@ export default class Container extends React.Component<IContainerProps, IContain
     this.setState({
       page: 'home',
       beers: []
-    })
+    } as IContainerState)
   }
 
   getBeers = () => {
@@ -58,7 +58,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beers',
         beers: beers
-      })
+      } as IContainerState)
     })
   }
 

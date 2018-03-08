@@ -1,10 +1,6 @@
 import React from 'react';
 
 export default class Homepage extends React.Component<{}, {}> {
-  // static propTypes = {
-  //   onButtonClick: PropTypes.func.isRequired,
-  //   buttonsText: PropTypes.array.isRequired
-  // }
   constructor(props: Object) {
     super(props);
     this.state = { }

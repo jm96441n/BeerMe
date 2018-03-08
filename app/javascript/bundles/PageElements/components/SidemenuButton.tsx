@@ -1,9 +1,9 @@
 import React from 'react';
 
-interface ISidemenuButtonProps {
-  buttonText: string,
-  linkTo: string,
-  onClick: (page: string) => void
+export interface ISidemenuButtonProps {
+  buttonText: string;
+  linkTo: string;
+  onClick: (page: string) => void;
 }
 
 export default class SidemenuButton extends React.Component<ISidemenuButtonProps, {}> {
@@ -13,14 +13,14 @@ export default class SidemenuButton extends React.Component<ISidemenuButtonProps
     this.state = { };
   }
 
-  onClick = (e: MouseEvent) => {
-    e.preventDefault();
+  onClick = (event: any) => {
+    event.preventDefault();
     this.props.onClick(this.props.linkTo)
   }
 
   render() {
     return (
-      <a href='#' onClick={ e => this.onClick} className='sidemenu-link'>
+      <a href='#' onClick={this.onClick} className='sidemenu-link'>
         <li className='list-group-item d-flex justify-content-between align-items-center' style={{'backgroundColor': 'black'}}>
           {this.props.buttonText}
         </li>
