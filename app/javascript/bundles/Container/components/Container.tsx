@@ -63,7 +63,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       let beer = response['data']['record']
       debugger;
       this.setState({
-        page: 'random',
+        page: 'beer',
         beers: [],
         beer: beer
       } as IContainerState)

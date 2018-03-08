@@ -17,7 +17,7 @@ export default class PageContent extends React.Component<IPageContentProps> {
           beers={ this.props.beers }
         />
       )
-    }else if(this.props.page == 'random') {
+    }else if(this.props.page == 'beer') {
       let beer: IBeer = this.props.beer
       return (
         <Beer
