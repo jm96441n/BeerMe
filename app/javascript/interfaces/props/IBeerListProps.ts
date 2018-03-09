@@ -1,6 +1,4 @@
-interface IPageContentProps {
+interface IBeerListProps {
   beers: Array<IBeer>;
-  page: string;
-  beer: IBeer;
   onListItemClick: (id: number) => void;
 }

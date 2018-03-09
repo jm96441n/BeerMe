@@ -29,6 +29,10 @@ export default class Container extends React.Component<IContainerProps, IContain
     }
   }
 
+  onListItemClick = (id: number) => {
+    this.getBeer(id);
+  }
+
   setHome = () => {
     this.setState({
       page: 'home',
@@ -53,6 +57,22 @@ export default class Container extends React.Component<IContainerProps, IContain
     })
   }
 
+  getBeer = (id: number) => {
+    var self = this;
+    return request ({
+      method: 'GET',
+      url: `/beers/${id}.json`,
+      responseType: 'json'
+    }).then((response) => {
+      let beer = response['data']['record']
+      this.setState({
+        page: 'beer',
+        beers: [],
+        beer: beer
+      } as IContainerState)
+    })
+  }
+
   getRandomBeer = () => {
     var self = this;
     return request({
@@ -61,7 +81,6 @@ export default class Container extends React.Component<IContainerProps, IContain
       responseType: 'json'
     }).then((response) => {
       let beer = response['data']['record']
-      debugger;
       this.setState({
         page: 'beer',
         beers: [],
@@ -73,14 +92,15 @@ export default class Container extends React.Component<IContainerProps, IContain
   render() {
     return (
       <div>
-        <Header onClick={this.setHome}/>
-        <Sidemenu onClick={this.onSideBarClick}/>
+        <Header onClick={ this.setHome } />
+        <Sidemenu onClick={ this.onSideBarClick } />
         <div className='container page_container'>
           <div id='page_content' className='h-100'>
             <PageContent
               page={ this.state.page }
               beers={ this.state.beers }
               beer={ this.state.beer }
+              onListItemClick={ this.onListItemClick }
             />
           </div>
         </div>

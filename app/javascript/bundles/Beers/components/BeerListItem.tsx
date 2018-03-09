@@ -1,7 +1,7 @@
 import React from 'react';
-export default class BeerListItem extends React.Component<IBeerProps, {}> {
+export default class BeerListItem extends React.Component<IBeerListItemProps, {}> {
 
-  constructor(props: IBeerProps) {
+  constructor(props: IBeerListItemProps) {
     super(props);
   }
 
@@ -13,17 +13,28 @@ export default class BeerListItem extends React.Component<IBeerProps, {}> {
     }
   }
 
+  onClick = (event: any) => {
+    event.preventDefault();
+    this.props.onClick(this.props.id);
+  }
+
   render() {
     return (
-      <tr className={this.getClass()}>
+      <tr className={ this.getClass() }>
         <th scope='row'>
-          {this.props.name}
+          <a
+            href='#'
+            onClick={ this.onClick }
+            className='beer-list-item'
+          >
+            { this.props.name }
+          </a>
         </th>
         <td className="text-center">
-          {this.props.abv}%
+          { this.props.abv }%
         </td>
         <td className="text-center">
-          {this.props.ibu}
+          { this.props.ibu }
         </td>
       </tr>
     )

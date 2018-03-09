@@ -17,7 +17,7 @@ export default class Header extends React.Component<IHeaderProps, {}> {
   render() {
     return (
         <nav className="navbar navbar-expand-lg navbark-dark bg-primary">
-          <a href="" onClick={this.onClick} className="header-link">
+          <a href="" onClick={ this.onClick } className="header-link">
             <h3>
               BeerMe!
             </h3>

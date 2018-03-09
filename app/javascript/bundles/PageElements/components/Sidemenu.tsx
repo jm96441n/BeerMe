@@ -27,10 +27,10 @@ export default class Sidemenu extends React.Component<ISidemenuProps, {}> {
       }
       return(
         <SidemenuButton
-          buttonText={text}
-          linkTo={link}
-          onClick={this.onClick}
-          key={link}
+          buttonText={ text }
+          linkTo={ link }
+          onClick={ this.onClick }
+          key={ link }
         />
       )
     })
@@ -38,7 +38,7 @@ export default class Sidemenu extends React.Component<ISidemenuProps, {}> {
       <aside className='wrapper'>
         <div id='sidebar'>
           <ul className='list-group list-unstyled components'>
-            {buttonNodes}
+            { buttonNodes }
           </ul>
         </div>
       </aside>

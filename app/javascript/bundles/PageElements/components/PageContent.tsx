@@ -10,11 +10,16 @@ export default class PageContent extends React.Component<IPageContentProps> {
     this.state = {};
   }
 
+  onListItemClick = (id: number) => {
+    this.props.onListItemClick(id);
+  }
+
   render () {
     if(this.props.page == 'beers') {
       return (
         <BeerList
           beers={ this.props.beers }
+          onListItemClick={ this.onListItemClick }
         />
       )
     }else if(this.props.page == 'beer') {

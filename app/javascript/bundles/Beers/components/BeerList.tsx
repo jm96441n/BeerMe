@@ -1,8 +1,5 @@
 import React from 'react';
 import BeerListItem from './BeerListItem';
-interface IBeerListProps {
-  beers: Array<IBeer>
-}
 
 export default class BeerList extends React.Component<IBeerListProps> {
 
@@ -10,15 +7,20 @@ export default class BeerList extends React.Component<IBeerListProps> {
     super(props);
   }
 
-  public render(): JSX.Element {
+  onListItemClick = (id: number) => {
+    this.props.onListItemClick(id);
+  }
+
+  render() {
     let beerNodes = this.props.beers.map((beer: IBeer, index: number) => {
       return (
         <BeerListItem
-          id={index}
+          id={beer['id']}
           key={index}
           name={beer['name']}
           abv={beer['abv']}
           ibu={beer['ibu']}
+          onClick={this.onListItemClick}
         />
       )
     })

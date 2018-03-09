@@ -25,3 +25,12 @@ Feature: A user can navigate away from the beer list page
     And I click "BeerMe!"
     Then I should see "Welcome to Beer Me!"
     And I should see "Having a hard time deciding what delicious nectar of the gods to consume? Always feeling indecisive about how to get your buzz on? You're in the right place then!"
+
+  @javascript
+  Scenario: Clicking on a beer will bring you to the detail page for that beer
+    When I visit the home page
+    And I click "Find a Beer"
+    And I click "Beer 1"
+    Then I should see "Name: Beer 1"
+    And I should see "ABV%: 6.5"
+    And I should see "IBU: 92"
