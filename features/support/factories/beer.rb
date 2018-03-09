@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :beer do
-    name "Name"
+    name 'Name'
     abv 6.5
     ibu 92
     association :brewery

@@ -4,8 +4,14 @@ class Beer < ApplicationRecord
   belongs_to :category, optional: true
 
   def self.random
-    number_beers = Beer.count
-    beer_id = rand(number_beers - 1)
+    beer_id = select_random_id
     Beer.find(beer_id)
+  end
+
+  class << self
+    private def select_random_id
+      beer_ids = Beer.pluck(:id)
+      rand(beer_ids.length - 1)
+    end
   end
 end
