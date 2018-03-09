@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: :index
 
-  resources :beers, only: :index
+  resources :beers, only: [:index, :show]
 
   resource :random_beer, only: :show
 end
