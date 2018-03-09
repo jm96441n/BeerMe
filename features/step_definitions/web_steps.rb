@@ -44,7 +44,8 @@ end
 def create_model(model, hash)
   if model == :beer
     hash[:beer_style] = BeerStyle.find_by_name(hash[:beer_style])
-    hash[:brewery] = Brewery.find_by_name(hash[:brewery])
+    hash[:brewery]    = Brewery.find_by_name(hash[:brewery])
+    hash[:category]   = Category.find_by_name(hash[:category])
   end
   if model == :beer_style
     hash[:category] = Category.find_by_name(hash[:category])
