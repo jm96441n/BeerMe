@@ -44,4 +44,22 @@ RSpec.describe BeersController, type: :controller do
       expect(names).to eql [92, 85, 93]
     end
   end
+
+  describe '#show' do
+    before(:each) do
+      get :show, params: { id: 1 }, format: :json
+      @body = json(response.body)
+    end
+    it 'returns a 200' do
+      expect(response).to be_success
+    end
+
+    it 'returns the selected beer' do
+      beer = @body['record']
+
+      expect(beer['name']).to eq('Beer 1')
+      expect(beer['abv']).to eq('Beer 6.7')
+      expect(beer['ibu']).to eq('92')
+    end
+  end
 end
