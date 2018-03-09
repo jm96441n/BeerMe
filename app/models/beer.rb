@@ -10,8 +10,9 @@ class Beer < ApplicationRecord
 
   class << self
     private def select_random_id
-      beer_ids = Beer.pluck(:id)
-      rand(beer_ids.length - 1)
+      beer_ids      = Beer.pluck(:id)
+      index_of_beer = rand(beer_ids.length - 1)
+      beer_ids[index_of_beer]
     end
   end
 end

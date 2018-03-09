@@ -23,5 +23,5 @@ Feature: Navigating to the random beer page should retrieve a random beer for th
     Given I visit the home page
     When I click "Get a Random Beer"
     Then I should see "Name: "
-    And I should see "ABV: "
+    And I should see "ABV%: "
     And I should see "IBU: "
