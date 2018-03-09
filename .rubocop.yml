@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'features/step_definitions/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/*'
