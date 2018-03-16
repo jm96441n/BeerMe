@@ -48,7 +48,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       url: '/beers.json',
       responseType: 'json'
     }).then((response) => {
-      let beers = response['data']['records']
+      let beers = response['data']
       this.setState({
         page: 'beers',
         beers: beers,
@@ -64,7 +64,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       url: `/beers/${id}.json`,
       responseType: 'json'
     }).then((response) => {
-      let beer = response['data']['record']
+      let beer = response['data']['data']['attributes']
       this.setState({
         page: 'beer',
         beers: [],
@@ -80,7 +80,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       url: '/random_beer.json',
       responseType: 'json'
     }).then((response) => {
-      let beer = response['data']['record']
+      let beer = response['data']['data']['attributes']
       this.setState({
         page: 'beer',
         beers: [],

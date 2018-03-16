@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   def index
     @beers = Beer.all
 
-    render json: Beers::IndexSerializer.new(@beers)
+    render json: ActiveModel::Serializer::CollectionSerializer.new(@beers)
   end
 
   def show
