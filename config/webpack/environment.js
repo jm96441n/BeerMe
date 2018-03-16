@@ -1,6 +1,6 @@
 const { environment } = require('@rails/webpacker')
 
-environment.loaders.set('typescript', {
+environment.loaders.append('typescript', {
   test: /.(ts|tsx)$/,
   loader: 'ts-loader'
 });

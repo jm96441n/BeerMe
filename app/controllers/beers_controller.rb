@@ -1,16 +1,18 @@
 class BeersController < ApplicationController
-
+  before_action :get_beer, only: :show
   def index
     @beers = Beer.all
-    options = {}
 
-    options[:meta] = { total: Beer.count }
-    render json: BeerSerializer.new(@beers, options)
+    render json: Beers::IndexSerializer.new(@beers)
   end
 
   def show
-    @beer = Beer.find(params[:id])
+    render json: Beers::ShowSerializer.new(@beer)
+  end
 
-    render json: BeerSerializer.new(@beer)
+  private
+
+  def get_beer
+    @beer = Beer.find(params[:id])
   end
 end

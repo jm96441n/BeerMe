@@ -39,6 +39,9 @@ gem 'fast_jsonapi'
 # OJ gem for faster json serialization
 gem 'oj'
 
+# AMS for json serialization
+gem 'active_model_serializers', '~> 0.10.0'
+
 # rubocop for style checking
 gem 'rubocop', '~> 0.52.1', require: false
 
@@ -55,6 +58,9 @@ group :development, :test do
 
   # Rspec for testing
   gem 'rspec-rails', '~> 3.7'
+
+  # active_model mocks for additional mocking
+  gem 'rspec-activemodel-mocks'
 
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
