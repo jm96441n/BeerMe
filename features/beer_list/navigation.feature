@@ -13,10 +13,10 @@ Feature: A user can navigate away from the beer list page
       | Stone     | 1           |
       | Big Money | 2           |
     And the following "Beers" exist with:
-      | name   | abv | ibu | beer_style | brewery   |
-      | Beer 1 | 6.5 | 92  | IPA        | Stone     |
-      | Beer 2 | 4.5 | 82  | Stout      | Big Money |
-      | Beer 3 | 9.5 | 98  | IPA        | Stone     |
+      | name   | abv | ibu | beer_style | brewery   | description |
+      | Beer 1 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 2 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 3 | 9.5 | 98  | IPA        | Stone     | cheery      |
 
   @javascript
   Scenario: Clicking the logo in the header will bring me back to the home page
@@ -34,3 +34,4 @@ Feature: A user can navigate away from the beer list page
     Then I should see "Name: Beer 1"
     And I should see "ABV%: 6.5"
     And I should see "IBU: 92"
+    And I should see "Description: testy"

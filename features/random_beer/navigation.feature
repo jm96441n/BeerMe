@@ -13,10 +13,10 @@ Feature: Navigating to the random beer page should retrieve a random beer for th
       | Stone     | 1           |
       | Big Money | 2           |
     And the following "Beers" exist with:
-      | name   | abv | ibu | beer_style | brewery   | category      |
-      | Beer 1 | 6.5 | 92  | IPA        | Stone     | American Ale  |
-      | Beer 2 | 4.5 | 82  | Stout      | Big Money | British Stout |
-      | Beer 3 | 9.5 | 98  | IPA        | Stone     | American Ale  |
+      | name   | abv | ibu | beer_style | brewery   | category      | description |
+      | Beer 1 | 6.5 | 92  | IPA        | Stone     | American Ale  | testy       |
+      | Beer 2 | 4.5 | 82  | Stout      | Big Money | British Stout | besty       |
+      | Beer 3 | 9.5 | 98  | IPA        | Stone     | American Ale  | resty       |
 
   @javascript
   Scenario: Navigating to the Random beer page shows a random beer
@@ -25,3 +25,4 @@ Feature: Navigating to the random beer page should retrieve a random beer for th
     Then I should see "Name: "
     And I should see "ABV%: "
     And I should see "IBU: "
+    And I should see "Description: "

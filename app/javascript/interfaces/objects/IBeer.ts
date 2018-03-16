@@ -3,5 +3,6 @@ interface IBeer {
   name: string,
   abv: number,
   ibu: number,
-  id: number
+  id: number,
+  description: string
 }

@@ -30,6 +30,7 @@ export default class PageContent extends React.Component<IPageContentProps> {
           abv={ beer.abv }
           ibu={ beer.ibu }
           id={ beer.id }
+          description={ beer.description }
         />
       )
     }else {

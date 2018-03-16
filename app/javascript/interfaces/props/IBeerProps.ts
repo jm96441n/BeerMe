@@ -3,4 +3,5 @@ interface IBeerProps {
   abv: number;
   ibu: number;
   id: number;
+  description: string;
 }
