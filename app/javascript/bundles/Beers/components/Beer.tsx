@@ -7,13 +7,34 @@ export default class Beer extends React.Component<IBeerProps, {}> {
     this.state = {};
   }
 
+  getBody: any = () => {
+    let html: any;
+    if(this.props.description){
+      html = (
+        <div>
+          <p>Name: {this.props.name}</p>
+          <p>ABV%: {this.props.abv}%</p>
+          <p>IBU: {this.props.ibu}</p>
+          <p>Description: {this.props.description}</p>
+        </div>
+      )
+    } else {
+      html = (
+        <div>
+          <p>Name: {this.props.name}</p>
+          <p>ABV%: {this.props.abv}%</p>
+          <p>IBU: {this.props.ibu}</p>
+        </div>
+      )
+    }
+    return html
+  }
+
   render() {
+    let html: any = this.getBody()
     return (
       <div>
-        <p>Name: { this.props.name }</p>
-        <p>ABV%: { this.props.abv }%</p>
-        <p>IBU: { this.props.ibu }</p>
-        <p>Description: { this.props.description }</p>
+        { html }
       </div>
     )
   }
