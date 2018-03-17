@@ -2,6 +2,6 @@ class RandomBeersController < ApplicationController
 
   def show
     @beer = Beer.random
-    render json: BeerSerializer.new(@beer)
+    render json: Beers::ShowSerializer.new(@beer)
   end
 end
