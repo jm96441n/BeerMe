@@ -1,4 +1,5 @@
 interface IPaginationLinksProps {
   currentPage: number,
-  lastPage: number
+  lastPage: number,
+  onPaginationClick: (pageNumber: number) => void,
 }

@@ -31,10 +31,16 @@ export default class PaginationLinks extends React.Component<IPaginationLinksPro
     return paginationLinkItems
   }
 
+  onClick = (event: any) => {
+    event.preventDefault();
+    let pageValue: number = event.target.getAttribute('href');
+    this.props.onPaginationClick(pageValue);
+  }
+
   buildLink = (pageNumber: number) => {
     return (
-      <li className='page-item'>
-        <a className="page-link" href={pageNumber.toString()}>
+      <li className='page-item' key={pageNumber}>
+        <a className="page-link" href={pageNumber.toString()} onClick={this.onClick}>
           {pageNumber}
         </a>
       </li>
@@ -48,13 +54,13 @@ export default class PaginationLinks extends React.Component<IPaginationLinksPro
       <div className='mx-auto'>
         <ul className='pagination'>
           <li className='page-item'>
-            <a className="page-link" href='1'>
+            <a className="page-link" href='1' onClick={this.onClick}>
               First Page(1)
             </a>
           </li>
           {linkNodes}
           <li className='page-item'>
-            <a className="page-link" href={lastPage.toString()}>
+            <a className="page-link" href={lastPage.toString()} onClick={this.onClick}>
               Last Page:{lastPage}
             </a>
           </li>

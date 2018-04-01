@@ -3,4 +3,5 @@ interface IBeerListProps {
   onListItemClick: (id: number) => void;
   currentPage: number;
   lastPage: number;
+  onPaginationClick: (pageNumber: number) => void;
 }

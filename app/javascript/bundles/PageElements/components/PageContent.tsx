@@ -14,6 +14,10 @@ export default class PageContent extends React.Component<IPageContentProps> {
     this.props.onListItemClick(id);
   }
 
+  onPaginationClick = (pageNumber: number) => {
+    this.props.onPaginationClick(pageNumber);
+  }
+
   render() {
     if(this.props.page == 'beers') {
       return (
@@ -22,6 +26,7 @@ export default class PageContent extends React.Component<IPageContentProps> {
           onListItemClick={ this.onListItemClick }
           currentPage={ this.props.currentPage }
           lastPage={ this.props.lastPage }
+          onPaginationClick={ this.onPaginationClick }
         />
       )
     }else if(this.props.page == 'beer') {

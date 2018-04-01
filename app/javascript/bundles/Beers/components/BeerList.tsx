@@ -12,6 +12,10 @@ export default class BeerList extends React.Component<IBeerListProps> {
     this.props.onListItemClick(id);
   }
 
+  onPaginationClick = (pageNumber: number) => {
+    this.props.onPaginationClick(pageNumber);
+  }
+
   render() {
     let i: number = 0;
     let beerNodes = this.props.beers.map((beerResponse: any, index: number) => {
@@ -62,6 +66,7 @@ export default class BeerList extends React.Component<IBeerListProps> {
             <PaginationLinks
               currentPage={ this.props.currentPage }
               lastPage={ this.props.lastPage }
+              onPaginationClick={ this.onPaginationClick }
             />
           </div>
         </div>

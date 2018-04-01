@@ -112,6 +112,7 @@ export default class Container extends React.Component<IContainerProps, IContain
               beers={ this.state.beers }
               beer={ this.state.beer }
               onListItemClick={ this.onListItemClick }
+              onPaginationClick={ this.getBeers }
               currentPage={ this.state.currentPage }
               lastPage={ this.state.lastPage }
             />
