@@ -61,7 +61,7 @@ export default class PaginationLinks extends React.Component<IPaginationLinksPro
           {linkNodes}
           <li className='page-item'>
             <a className="page-link" href={lastPage.toString()} onClick={this.onClick}>
-              Last Page:{lastPage}
+              Last Page({lastPage})
             </a>
           </li>
         </ul>
