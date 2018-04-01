@@ -1,13 +1,15 @@
 class BeersController < ApplicationController
+  include Rails::Pagination
+
   before_action :get_beer, only: :show
   def index
-    @beers = Beer.all
+    @beers = paginate Beer.all
 
-    render json: ActiveModel::Serializer::CollectionSerializer.new(@beers)
+    render jsonapi: @beers, fields: { beers: %i[ibu abv name] }, meta: { current_page: params[:page].to_i, last_page: @beers.total_pages }
   end
 
   def show
-    render json: Beers::ShowSerializer.new(@beer)
+    render jsonapi: @beer
   end
 
   private

@@ -9,7 +9,9 @@ interface IContainerProps { }
 const initialState: IContainerState = {
   page: 'home',
   beers: [],
-  beer: {} as IBeer
+  beer: {} as IBeer,
+  currentPage: 1,
+  lastPage: 0
 }
 
 export default class Container extends React.Component<IContainerProps, IContainerState> {
@@ -37,22 +39,27 @@ export default class Container extends React.Component<IContainerProps, IContain
     this.setState({
       page: 'home',
       beers: [],
-      beer: {} as IBeer
+      beer: {} as IBeer,
+      currentPage: 1,
+      lastPage: this.state.lastPage
     } as IContainerState)
   }
 
-  getBeers = () => {
-    var self = this;
+  getBeers = (page: number = 1) => {
     return request({
       method: 'GET',
-      url: '/beers.json',
+      url: `/beers.json?page=${page}`,
       responseType: 'json'
     }).then((response) => {
-      let beers = response['data']
+      let currentPage: number = response['data']['meta']['current_page'];
+      let lastPage: number = response['data']['meta']['last_page'];
+      let beers = response['data']['data'];
       this.setState({
         page: 'beers',
         beers: beers,
-        beer: {} as IBeer
+        beer: {} as IBeer,
+        currentPage: currentPage,
+        lastPage: lastPage
       } as IContainerState)
     })
   }
@@ -68,7 +75,9 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
-        beer: beer
+        beer: beer,
+        currentPage: 1,
+        lastPage: this.state.lastPage
       } as IContainerState)
     })
   }
@@ -84,7 +93,9 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
-        beer: beer
+        beer: beer,
+        currentPage: 1,
+        lastPage: this.state.lastPage
       } as IContainerState)
     })
   }
@@ -101,6 +112,8 @@ export default class Container extends React.Component<IContainerProps, IContain
               beers={ this.state.beers }
               beer={ this.state.beer }
               onListItemClick={ this.onListItemClick }
+              currentPage={ this.state.currentPage }
+              lastPage={ this.state.lastPage }
             />
           </div>
         </div>

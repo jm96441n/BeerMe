@@ -14,12 +14,14 @@ export default class PageContent extends React.Component<IPageContentProps> {
     this.props.onListItemClick(id);
   }
 
-  render () {
+  render() {
     if(this.props.page == 'beers') {
       return (
         <BeerList
           beers={ this.props.beers }
           onListItemClick={ this.onListItemClick }
+          currentPage={ this.props.currentPage }
+          lastPage={ this.props.lastPage }
         />
       )
     }else if(this.props.page == 'beer') {

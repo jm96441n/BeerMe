@@ -39,8 +39,8 @@ gem 'fast_jsonapi'
 # OJ gem for faster json serialization
 gem 'oj'
 
-# AMS for json serialization
-gem 'active_model_serializers', '~> 0.10.0'
+# jsonapi for json serialization
+gem 'jsonapi-rails'
 
 # rubocop for style checking
 gem 'rubocop', '~> 0.52.1', require: false
@@ -51,6 +51,11 @@ gem 'bootstrap', '~> 4.0.0'
 # JQuery because bootstrap needs it
 gem 'jquery-rails'
 
+# Kaminari for pagination
+gem 'kaminari'
+
+# api-pagination to format kaminara for api only response
+gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,5 +1,6 @@
 import React from 'react';
 import BeerListItem from './BeerListItem';
+import PaginationLinks from '../../PageElements/components/PaginationLinks'
 
 export default class BeerList extends React.Component<IBeerListProps> {
 
@@ -12,10 +13,13 @@ export default class BeerList extends React.Component<IBeerListProps> {
   }
 
   render() {
-    let beerNodes = this.props.beers.map((beer: IBeer, index: number) => {
+    let i: number = 0;
+    let beerNodes = this.props.beers.map((beerResponse: any, index: number) => {
+      let beer: IBeer = beerResponse['attributes'];
+      i++;
       return (
         <BeerListItem
-          id={beer['id']}
+          id={i}
           key={index}
           name={beer['name']}
           abv={beer['abv']}
@@ -53,6 +57,12 @@ export default class BeerList extends React.Component<IBeerListProps> {
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className='row'>
+            <PaginationLinks
+              currentPage={ this.props.currentPage }
+              lastPage={ this.props.lastPage }
+            />
           </div>
         </div>
       </div>

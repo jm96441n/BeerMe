@@ -3,4 +3,6 @@ interface IPageContentProps {
   page: string;
   beer: IBeer;
   onListItemClick: (id: number) => void;
+  currentPage: number,
+  lastPage: number
 }
