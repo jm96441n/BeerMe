@@ -57,6 +57,9 @@ gem 'kaminari'
 # api-pagination to format kaminara for api only response
 gem 'api-pagination'
 
+# Service objects!
+gem 'active_services', git: 'jm96441n/active_services', branch: 'master'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
