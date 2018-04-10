@@ -1,0 +1,77 @@
+Feature: Pagination works from the beer list page
+  Background:
+    Given the following "Categories" exist with:
+      | name          | external_id |
+      | British Stout | 1           |
+      | American Ale  | 2           |
+    And the following "Beer Styles" exist with:
+      | name  | category      | external_id |
+      | IPA   | American Ale  | 1           |
+      | Stout | British Stout | 2           |
+    And the following "Breweries" exist with:
+      | name      | external_id |
+      | Stone     | 1           |
+      | Big Money | 2           |
+    And the following "Beers" exist with:
+      | name    | abv | ibu | beer_style | brewery   | description |
+      | Beer 1  | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 2  | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 3  | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 4  | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 5  | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 6  | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 7  | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 8  | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 9  | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 10 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 11 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 12 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 13 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 14 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 15 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 16 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 17 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 18 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 19 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 20 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 21 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 22 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 23 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 24 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 25 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 26 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 27 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 28 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 29 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 30 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 31 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 32 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 33 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 34 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 35 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 36 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 37 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 38 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 39 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 40 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 41 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 42 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 43 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 44 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 45 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 46 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 47 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 48 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 49 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 50 | 9.5 | 98  | IPA        | Stone     | cheery      |
+
+  @javascript
+  Scenario: The beer list is paginated to 25 beers per page
+    Given I visit the home page
+    And I click "Find a Beer"
+    Then I should see "First Page(1)"
+    And I should see "Last Page(4)"
+    And I should see "1"
+    And I should see "2"
+    And I should see "3"
+    And I should see 15 items in the "beers" table

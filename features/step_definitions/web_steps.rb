@@ -45,6 +45,13 @@ Then /^I should see the following beers in the table:$/ do |expected_table|
   expected_table.diff!(actual_table)
 end
 
+And /^I should see (.*) items in the "(.*?)" table$/ do |count, table_name|
+  count = count.to_i
+  table_name = "##{table_name.singularize}-list"
+  list_count = page.find(table_name).all('tr').count - 1
+  expect(list_count).to eq(count)
+end
+
 def create_model(model, hash)
   if model == :beer
     hash[:beer_style] = BeerStyle.find_by_name(hash[:beer_style])
