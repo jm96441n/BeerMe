@@ -4,7 +4,7 @@ Feature: A user can navigate away from the beer list page
       | name          | external_id |
       | British Stout | 1           |
       | American Ale  | 2           |
-    Given the following "Beer Styles" exist with:
+    And the following "Beer Styles" exist with:
       | name  | category      | external_id |
       | IPA   | American Ale  | 1           |
       | Stout | British Stout | 2           |
