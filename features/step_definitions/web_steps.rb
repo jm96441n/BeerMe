@@ -2,8 +2,12 @@ When /^I visit the home page$/ do
   visit root_path
 end
 
-Then /^I should see "([^"]*)"$/ do |text|
-  expect(page).to have_content(text)
+Then /^I should( not)? see "([^"]*)"$/ do |should_not, text|
+  if should_not
+    expect(page).to_not have_content(text)
+  else
+    expect(page).to have_content(text)
+  end
 end
 
 
