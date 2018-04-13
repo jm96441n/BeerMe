@@ -51,7 +51,7 @@ export default class PaginationLinks extends React.Component<IPaginationLinksPro
     let lastPage: number = this.props.lastPage
     let linkNodes: Array<any> = this.collectLinks();
     return(
-      <div className='mx-auto'>
+      <div className='mx-auto' id='pagination'>
         <ul className='pagination'>
           <li className='page-item'>
             <a className="page-link" href='1' onClick={this.onClick}>

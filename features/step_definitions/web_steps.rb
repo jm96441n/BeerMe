@@ -4,9 +4,9 @@ end
 
 Then /^I should( not)? see "([^"]*)"$/ do |should_not, text|
   if should_not
-    expect(page).to_not have_content(text)
+    expect(page).to_not have_text(text, :exact)
   else
-    expect(page).to have_content(text)
+    expect(page).to have_text(text, :exact)
   end
 end
 
@@ -19,8 +19,15 @@ Given /^the following "(.*?)" exist with:$/ do |plural_model, table|
   end
 end
 
-And /^I click "([^"]*)"$/ do |link_text|
-  find('a', text: link_text).click
+And /^I click "([^"]*)"( within "([^"]*)")?$/ do |link_text, selector|
+  if selector
+    id = selector.downcase.split(' ').join('_')
+    within("##{id}") do
+      find('a', text: link_text, match: :prefer_exact).click
+    end
+  else
+    find('a', text: link_text, match: :prefer_exact).click
+  end
 end
 
 Then /^I should see the following beers in the table:$/ do |expected_table|
