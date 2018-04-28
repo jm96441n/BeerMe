@@ -59,9 +59,9 @@ module Beers
 
     def find_by_category
       if @abv && @ibu
-        find_by_abv_and_ibu(category: category)
+        find_by_abv_and_ibu(category: @category)
       elsif @abv
-        find_by_abv(category: category)
+        find_by_abv(category: @category)
       elsif @ibu
         find_by_ibu(category: @category)
       else
