@@ -11,9 +11,11 @@ module Beers
 
     def call
       prev_recommendation_count = @prev_recommendations.length
-      while prev_recommendation_count == @prev_recommendations.length
+      retries = 0
+      while prev_recommendation_count == @prev_recommendations.length && retries <= 3
         recommended_beer = make_recommendation
         prev_recommendation_count += 1 if @prev_recommendations.exclude?(recommended_beer)
+        retries += 1
       end
       result(recommended_beer)
     end

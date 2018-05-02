@@ -1,4 +1,4 @@
 class SerializableBeer < JSONAPI::Serializable::Resource
   type 'beers'
-  attributes :name, :abv, :ibu, :description
+  attributes :name, :abv, :ibu, :description, :id
 end

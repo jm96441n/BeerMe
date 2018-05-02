@@ -70,7 +70,7 @@ export default class Container extends React.Component<IContainerProps, IContain
     let beers: Array<IBeer> = [];
     request({
       method: 'GET',
-      url: `/recommneded_beers?beer_id=${id}`,
+      url: `/recommended_beers?beer_id=${id}`,
       responseType: 'json'
     }).then((response) => {
       beers = response['data']['data']

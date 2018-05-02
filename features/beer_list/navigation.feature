@@ -15,8 +15,8 @@ Feature: A user can navigate away from the beer list page
     And the following "Beers" exist with:
       | name   | abv | ibu | beer_style | brewery   | description |
       | Beer 1 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 2 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 3 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 2 | 5.7 | 90  | Stout      | Big Money | beery       |
+      | Beer 3 | 6.7 | 94  | IPA        | Stone     | cheery      |
 
   @javascript
   Scenario: Clicking the logo in the header will bring me back to the home page

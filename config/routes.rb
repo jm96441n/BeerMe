@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :beers, only: [:index, :show]
 
   resource :random_beer, only: :show
+
+  resources :recommended_beers, only: :index
 end

@@ -9,11 +9,13 @@ module Beers
 
     private
 
+    # Returns a random beer based on the randomly selected id
     def random
       beer_id = select_random_id
       Beer.find(beer_id)
     end
 
+    # Returns a randomly selected id of a beer from the available beer ids
     def select_random_id
       beer_ids      = Beer.pluck(:id)
       index_of_beer = rand(beer_ids.length - 1)

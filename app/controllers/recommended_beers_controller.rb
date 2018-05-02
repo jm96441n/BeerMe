@@ -4,7 +4,7 @@ class RecommendedBeersController < ApplicationController
   def index
     recommended_beers
 
-    render jsonapi: @beers, fields: { beers: %i[ibu abv name] }
+    render jsonapi: @beers, fields: { beers: %i[ibu abv name id] }
   end
 
   private
@@ -12,11 +12,13 @@ class RecommendedBeersController < ApplicationController
   def recommended_beers
     @beers = []
     3.times do
-      @beers << Beers::Recommender.new(@beer, @beers.last).call()
+      service = Beers::Recommender.new(@beer, @beers)
+      result = service.call
+      @beers << result.model
     end
   end
 
   def set_beer
-    @beer = Beer.find(params[:beer_id])
+    @beer = Beer.find(params[:beer_id].to_i)
   end
 end
