@@ -32,6 +32,7 @@ module Beers
       end
     end
 
+    # Returns a beer with the same style and category
     def find_by_style_and_category
       if @abv && @ibu
         find_by_abv_and_ibu(category: @category, beer_style: @beer_style)
@@ -41,9 +42,11 @@ module Beers
         find_by_ibu(category: @category, beer_style: @beer_style)
       else
         found_beer = Beer.where(category: @category, beer_style: @beer_style).sample until found_beer
+        found_beer
       end
     end
 
+    # Returns a beer with the same style
     def find_by_beer_style
       if @abv && @ibu
         find_by_abv_and_ibu(beer_style: @beer_style)
@@ -57,6 +60,7 @@ module Beers
       end
     end
 
+    # Returns a beer with the same category
     def find_by_category
       if @abv && @ibu
         find_by_abv_and_ibu(category: @category)
@@ -70,6 +74,7 @@ module Beers
       end
     end
 
+    # Returns a beer when style and category is not present
     def find_beer
       if @abv && @ibu
         find_by_abv_and_ibu
@@ -82,6 +87,7 @@ module Beers
       end
     end
 
+    # Returns a beer within the ibu range with same style and category if present
     def find_by_ibu(category: nil, beer_style: nil)
       beer = nil
       until beer
@@ -91,6 +97,7 @@ module Beers
       beer
     end
 
+    # Returns a beer within the abv range with same style and category if present
     def find_by_abv(category: nil, beer_style: nil)
       beer = nil
       until beer
@@ -100,6 +107,7 @@ module Beers
       beer
     end
 
+    # Returns a beer within the ibu and abv range with same style and category if present
     def find_by_abv_and_ibu(category: nil, beer_style: nil)
       beer = nil
       until beer
@@ -110,10 +118,13 @@ module Beers
       beer
     end
 
+    # Returns float rounded to one decimal position for calculating the change in abv
+    # for finding related beers
     def change_for_abv
       rand(-1.0..1.0).round(1)
     end
 
+    # Returns integer for calculating the change in ibu for finding related beers
     def change_for_ibu
       rand(-5..5)
     end

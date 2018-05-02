@@ -131,4 +131,90 @@ describe Beers::Recommender, type: :service do
       expect(result.model).to equal(beer1)
     end
   end
+
+  context 'beer only has category and beer_style' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(0)
+      allow(beer).to receive(:abv).and_return(0)
+      allow(beer).to receive(:category).and_return(category)
+      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:where).with(category: category, beer_style: beer_style).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
+
+  context 'beer only has abv, ibu, and category' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(54)
+      allow(beer).to receive(:abv).and_return(6.2)
+      allow(beer).to receive(:category).and_return(category)
+      allow(beer).to receive(:beer_style).and_return(nil)
+      allow(Beer).to receive(:where).with(abv: 7.0, ibu: 56, category: category, beer_style: nil).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      allow(service).to receive(:change_for_abv).and_return(0.8)
+      allow(service).to receive(:change_for_ibu).and_return(2)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
+
+  context 'beer only has abv, ibu, and beer_style' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(54)
+      allow(beer).to receive(:abv).and_return(6.2)
+      allow(beer).to receive(:category).and_return(nil)
+      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:where).with(abv: 7.0, ibu: 56, category: nil, beer_style: beer_style).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      allow(service).to receive(:change_for_abv).and_return(0.8)
+      allow(service).to receive(:change_for_ibu).and_return(2)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
+
+  context 'beer only has abv, category, and beer_style' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(0)
+      allow(beer).to receive(:abv).and_return(6.2)
+      allow(beer).to receive(:category).and_return(category)
+      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:where).with(abv: 7.0, category: category, beer_style: beer_style).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      allow(service).to receive(:change_for_abv).and_return(0.8)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
+
+  context 'beer only has ibu, category, and beer_style' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(54)
+      allow(beer).to receive(:abv).and_return(0)
+      allow(beer).to receive(:category).and_return(category)
+      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:where).with(ibu: 56, category: category, beer_style: beer_style).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      allow(service).to receive(:change_for_ibu).and_return(2)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
+
+  context 'beer only has all attributes' do
+    it 'should respond to call and return a result object with a beer' do
+      allow(beer).to receive(:ibu).and_return(54)
+      allow(beer).to receive(:abv).and_return(6.2)
+      allow(beer).to receive(:category).and_return(category)
+      allow(beer).to receive(:beer_style).and_return(beer_style)
+      allow(Beer).to receive(:where).with(ibu: 56, abv: 7.0, category: category, beer_style: beer_style).and_return([beer1])
+      service = Beers::Recommender.new(beer)
+      allow(service).to receive(:change_for_abv).and_return(0.8)
+      allow(service).to receive(:change_for_ibu).and_return(2)
+      result = service.call
+      expect(result.model).to equal(beer1)
+    end
+  end
 end

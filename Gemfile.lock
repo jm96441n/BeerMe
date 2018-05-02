@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: jm96441n/active_services
-  revision: 7fb3455e3b91fd43d06f8c00be968d6057da95ce
+  revision: a72565f3aa94e36f7f8ee6d47cb238ffc33b4b28
   branch: master
   specs:
     active_services (0.1.0)
