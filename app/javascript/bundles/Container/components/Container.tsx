@@ -10,6 +10,7 @@ const initialState: IContainerState = {
   page: 'home',
   beers: [],
   beer: {} as IBeer,
+  recommendedBeers: [],
   currentPage: 1,
   lastPage: 0
 }
@@ -40,6 +41,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       page: 'home',
       beers: [],
       beer: {} as IBeer,
+      recommendedBeers: [],
       currentPage: 1,
       lastPage: this.state.lastPage
     } as IContainerState)
@@ -64,18 +66,31 @@ export default class Container extends React.Component<IContainerProps, IContain
     })
   }
 
+  getRecommendedBeers = (id: number) => {
+    let beers: Array<IBeer> = [];
+    request({
+      method: 'GET',
+      url: `/recommneded_beers?beer_id=${id}`,
+      responseType: 'json'
+    }).then((response) => {
+      beers = response['data']['data']
+    })
+    return beers
+  }
+
   getBeer = (id: number) => {
-    var self = this;
     return request ({
       method: 'GET',
       url: `/beers/${id}.json`,
       responseType: 'json'
     }).then((response) => {
       let beer = response['data']['data']['attributes']
+      let recommendedBeers = this.getRecommendedBeers(beer['id'])
       this.setState({
         page: 'beer',
         beers: [],
         beer: beer,
+        recommendedBeers: recommendedBeers,
         currentPage: 1,
         lastPage: this.state.lastPage
       } as IContainerState)
@@ -90,10 +105,12 @@ export default class Container extends React.Component<IContainerProps, IContain
       responseType: 'json'
     }).then((response) => {
       let beer = response['data']['data']['attributes']
+      let recommendedBeers = this.getRecommendedBeers(beer['id'])
       this.setState({
         page: 'beer',
         beers: [],
         beer: beer,
+        recommendedBeers: recommendedBeers,
         currentPage: 1,
         lastPage: this.state.lastPage
       } as IContainerState)
