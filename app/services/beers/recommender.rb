@@ -9,10 +9,11 @@ module Beers
       @abv = @current_beer.abv if @current_beer.abv > 0
     end
 
+    # Tries 5 times to find a beer to recommend
     def call
       prev_recommendation_count = @prev_recommendations.length
       retries = 0
-      while prev_recommendation_count == @prev_recommendations.length && retries <= 3
+      while prev_recommendation_count == @prev_recommendations.length && retries < 5
         recommended_beer = make_recommendation
         prev_recommendation_count += 1 if @prev_recommendations.exclude?(recommended_beer)
         retries += 1
@@ -22,6 +23,7 @@ module Beers
 
     private
 
+    # Returns the recommended beer
     def make_recommendation
       if @beer_style && @category
         find_by_style_and_category
