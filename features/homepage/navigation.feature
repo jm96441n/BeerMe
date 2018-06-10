@@ -22,14 +22,14 @@ Feature: When a user first visits the site they will be greeted by a homepage sh
   @javascript
   Scenario: Sidemenu shows correct navigation
     When I visit the home page
-    Then I should see "Find a Beer"
-    And I should see "Get a Random Beer"
+    Then I should see "Find a Beer" on the page
+    And I should see "Get a Random Beer" on the page
 
   @javascript
   Scenario: Homepage shows the correct welcome greeting
     When I visit the home page
-    Then I should see "Welcome to Beer Me!"
-    And I should see "Having a hard time deciding what delicious nectar of the gods to consume? Always feeling indecisive about how to get your buzz on? You're in the right place then!"
+    Then I should see "Welcome to Beer Me!" on the page
+    And I should see "Having a hard time deciding what delicious nectar of the gods to consume? Always feeling indecisive about how to get your buzz on? You're in the right place then!" on the page
 
   @javascript
   Scenario: A user can navigate to the category list page

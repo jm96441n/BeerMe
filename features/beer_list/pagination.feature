@@ -69,24 +69,24 @@ Feature: Pagination works from the beer list page
   Scenario: The beer list is paginated to 15 beers per page
     Given I visit the home page
     When I click "Find a Beer"
-    Then I should see "First Page(1)"
-    And I should see "Last Page(4)"
-    And I should see "1"
-    And I should see "2"
-    And I should see "3"
-    And I should see "Beer 1"
-    And I should see "Beer 15"
-    And I should not see "Beer 26"
+    Then I should see "First Page(1)" on the page
+    And I should see "Last Page(4)" on the page
+    And I should see "1" on the page
+    And I should see "2" on the page
+    And I should see "3" on the page
+    And I should see "Beer 1" on the page
+    And I should see "Beer 15" on the page
+    And I should not see "Beer 26" on the page
     And I should see 15 items in the "beers" table
 
   @javascript
   Scenario: I can navigate to the different beer pages
     Given I visit the home page
     When I click "Find a Beer"
-    Then I should see "Beer 1"
-    And I should see "Beer 15"
-    And I should not see "Beer 26"
+    Then I should see "Beer 1" on the page
+    And I should see "Beer 15" on the page
+    And I should not see "Beer 26" on the page
     And I click "2" within "pagination"
-    And I should see "Beer 26"
-    And I should not see "Beer 1"
+    And I should see "Beer 26" on the page
+    And I should not see "Beer 1" on the page
     And I should see 15 items in the "beers" table

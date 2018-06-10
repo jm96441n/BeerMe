@@ -84,8 +84,8 @@ export default class Container extends React.Component<IContainerProps, IContain
       url: `/beers/${id}.json`,
       responseType: 'json'
     }).then((response) => {
-      let beer = response['data']['data']['attributes']
-      let recommendedBeers = this.getRecommendedBeers(beer['id'])
+      let beer = response['data']['data']['attributes'];
+      let recommendedBeers: Array<IBeer> = [] //this.getRecommendedBeers(beer['id'])
       this.setState({
         page: 'beer',
         beers: [],
@@ -104,8 +104,8 @@ export default class Container extends React.Component<IContainerProps, IContain
       url: '/random_beer.json',
       responseType: 'json'
     }).then((response) => {
-      let beer = response['data']['data']['attributes']
-      let recommendedBeers = this.getRecommendedBeers(beer['id'])
+      let beer = response['data']['data']['attributes'];
+      let recommendedBeers: Array<IBeer> = []; // this.getRecommendedBeers(beer['id'])
       this.setState({
         page: 'beer',
         beers: [],

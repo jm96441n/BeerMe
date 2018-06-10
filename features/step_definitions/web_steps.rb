@@ -4,9 +4,17 @@ end
 
 Then /^I should( not)? see "([^"]*)"$/ do |should_not, text|
   if should_not
-    expect(page).to_not have_text(text, :exact)
+    expect(page).to_not have_text(text, exact: true)
   else
-    expect(page).to have_text(text, :exact)
+    expect(page).to have_text(text, exact: true)
+  end
+end
+
+Then /^I should( not)? see "([^"]*)" on the page$/ do |should_not, text|
+  if should_not
+    expect(page).to_not have_text(text)
+  else
+    expect(page).to have_text(text)
   end
 end
 
