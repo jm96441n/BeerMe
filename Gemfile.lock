@@ -1,15 +1,15 @@
 GIT
-  remote: git@github.com:mobilityhouse/acts_as_addressable.git
-  revision: 3f7eafbd9d63e44a23b593e1dfab7fa77220e431
-  specs:
-    acts_as_addressable (0.0.2)
-
-GIT
-  remote: jm96441n/active_services
+  remote: git@github.com:jm96441n/active_services
   revision: 3ffa9c5def121e99bc2b0ddd277742fcff897715
   branch: master
   specs:
     active_services (0.1.0)
+
+GIT
+  remote: git@github.com:mobilityhouse/acts_as_addressable.git
+  revision: 3f7eafbd9d63e44a23b593e1dfab7fa77220e431
+  specs:
+    acts_as_addressable (0.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -349,4 +349,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.1
+   1.16.5

@@ -58,7 +58,7 @@ gem 'kaminari'
 gem 'api-pagination'
 
 # Service objects!
-gem 'active_services', git: 'jm96441n/active_services', branch: 'master'
+gem 'active_services', git: 'git@github.com:jm96441n/active_services', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
