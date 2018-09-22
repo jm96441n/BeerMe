@@ -1,19 +1,20 @@
 .wrapper {
-  display: flex;
+  position: fixed;
+  min-width: 250px;
+  max-width: 250px;
+  height: 100%;
+  border-right: 1px solid rgba(0,0,0,0.125);
+  background-color: black;
 }
 
 #sidebar {
-  position: absolute;
-  min-width: 250px;
-  max-width: 250px;
-  height: 93.5%;
-  border-right: 1px solid rgba(0,0,0,0.125);
-  background-color: black;
+  margin-top: 25%;
 }
 
 #page_content {
   width: 80%;
   margin-left: 250px;
+  padding-top: 10%;
 }
 
 .list-group-item {

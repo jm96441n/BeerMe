@@ -63,7 +63,7 @@ export default class BeerList extends React.Component<IBeerListProps> {
                     <th scope='col'>
                       Name
                     </th>
-                    <th scope='col'>
+                    <th scope='col' className='text-center'>
                       Style
                     </th>
                     <th scope='col'>
@@ -72,7 +72,7 @@ export default class BeerList extends React.Component<IBeerListProps> {
                     <th scope='col'>
                       IBU
                     </th>
-                    <th scope='col'>
+                    <th scope='col' className='text-center'>
                       Brewery
                     </th>
                   </tr>

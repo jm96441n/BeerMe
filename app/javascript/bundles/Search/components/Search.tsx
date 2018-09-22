@@ -49,8 +49,8 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
             setStyle={this.handleStyleChange}
           />
         </div>
-        <div id='submit' className='col-md-2'>
-          <button type='button' className='btn btn-primary' onClick={ this.searchSubmission }>
+        <div id='submit' className='col-md-2 align-text-bottom'>
+          <button id='beer-search-button' type='button' className='btn btn-primary' onClick={ this.searchSubmission }>
             Find Beers
           </button>
         </div>
