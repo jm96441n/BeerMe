@@ -25,6 +25,13 @@ export default class StyleSelect extends React.Component<IStyleSelectProps, ISty
       }
       return newNode
     })
+    // clear this specific search element
+    let clear: any = {
+      value: '',
+      label: 'Clear'
+    }
+
+    nodes.unshift(clear);
 
     return nodes
   }

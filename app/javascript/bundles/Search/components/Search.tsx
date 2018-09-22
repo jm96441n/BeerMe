@@ -33,9 +33,11 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
     return(
       <div id='search' className='row'>
         <div id='name-search' className='col-md-4'>
-          <label htmlFor='name'>
-            Name
-          </label>
+          <div>
+            <label htmlFor='name'>
+              Name
+            </label>
+          </div>
           <input id='name' name='name' onChange={ this.onNameChange }/>
         </div>
         <div id='style-search' className='col-md-4'>
