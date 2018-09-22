@@ -33,6 +33,8 @@ export default class BeerList extends React.Component<IBeerListProps> {
           name={beer['name']}
           abv={beer['abv']}
           ibu={beer['ibu']}
+          beer_style={beer['beer_style']}
+          brewery_name={beer['brewery_name']}
           onClick={this.onListItemClick}
         />
       )
@@ -61,10 +63,16 @@ export default class BeerList extends React.Component<IBeerListProps> {
                       Name
                     </th>
                     <th scope='col'>
+                      Style
+                    </th>
+                    <th scope='col'>
                       ABV
                     </th>
                     <th scope='col'>
                       IBU
+                    </th>
+                    <th scope='col'>
+                      Brewery
                     </th>
                   </tr>
                 </thead>

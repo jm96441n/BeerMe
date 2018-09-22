@@ -1,4 +1,4 @@
-When /^I visit the home page$/ do
+When /^I (visit|am on) the home page$/ do |_visit_or_on|
   visit root_path
 end
 
@@ -55,10 +55,12 @@ Then /^I should see the following beers in the table:$/ do |expected_table|
     actual_table << [cell.text]
   end
 
-  i = 1
+  row = 1
   all('#beer-list tbody tr td').each_with_index do |cell, index|
-    actual_table[i] << cell.text
-    i += 1 if index.odd? && index > 0
+    actual_table[row] << cell.text
+    # Move to the next row once all the values from that row have been added, the first value of the acutal_table
+    # array is an array of the header columns
+    row += 1 if actual_table[row].length == actual_table[0].length
   end
 
   expected_table.diff!(actual_table)
