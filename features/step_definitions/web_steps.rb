@@ -42,6 +42,12 @@ And /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, input|
   fill_in field, with: input
 end
 
+And /^I select "([^"]*)" from "([^"]*)"$/ do |option, field|
+  wrapper = find("##{field.downcase}")
+  wrapper.click
+  wrapper.find('input').set(option).native.send_keys(:return)
+end
+
 Then /^I should see the following beers in the table:$/ do |expected_table|
   page.find('#beer-list')
 

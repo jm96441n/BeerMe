@@ -22,10 +22,6 @@ class BeersController < ApplicationController
 
   # Returns an AR relation
   def filtered_beers
-    if params['name'].strip.empty?
-      Beer.includes(:brewery, :beer_style).all
-    else
-      Beer.includes(:brewery, :beer_style).search_by_name(params['name'])
-    end
+    Beer.search_by_style(params['style']).search_by_name(params['name']).order(:name)
   end
 end

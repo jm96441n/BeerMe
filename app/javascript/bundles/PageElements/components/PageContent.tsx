@@ -26,6 +26,7 @@ export default class PageContent extends React.Component<IPageContentProps> {
       return (
         <BeerList
           beers={ this.props.beers }
+          beerStyles={ this.props.beerStyles }
           onListItemClick={ this.onListItemClick }
           currentPage={ this.props.currentPage }
           lastPage={ this.props.lastPage }

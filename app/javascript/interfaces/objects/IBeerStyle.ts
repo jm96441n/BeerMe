@@ -1,0 +1,3 @@
+interface IBeerStyle {
+  name: String;
+}

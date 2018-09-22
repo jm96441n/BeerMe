@@ -14,15 +14,15 @@ Feature: Searching works from the beer list page
       | Big Money | 2           |
     And the following "Beers" exist with:
       | name    | abv | ibu | beer_style | brewery   | description |
-      | Beer 1  | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 2  | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 3  | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 4  | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 5  | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 6  | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 7  | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 8  | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 9  | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 01 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 02 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 03 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 04 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 05 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 06 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | Beer 07 | 6.5 | 92  | IPA        | Stone     | testy       |
+      | Beer 08 | 4.5 | 82  | Stout      | Big Money | beery       |
+      | Beer 09 | 9.5 | 98  | IPA        | Stone     | cheery      |
       | Beer 10 | 6.5 | 92  | IPA        | Stone     | testy       |
       | Beer 11 | 4.5 | 82  | Stout      | Big Money | beery       |
       | Beer 12 | 9.5 | 98  | IPA        | Stone     | cheery      |
@@ -73,7 +73,6 @@ Feature: Searching works from the beer list page
     And I click "Find Beers"
     Then I should see the following beers in the table:
       | Name    | ABV  | IBU |
-      | Beer 5  | 4.5% | 82  |
       | Beer 50 | 9.5% | 98  |
       | Beer 51 | 6.5% | 92  |
       | Beer 52 | 4.5% | 82  |
@@ -90,3 +89,27 @@ Feature: Searching works from the beer list page
       | Beer 5      |
       | beer 5      |
       | eer 5       |
+
+  @javascript
+  Scenario: I can search by beer style
+    Given I visit the home page
+    And I click "Find a Beer"
+    When I select "IPA" from "Style"
+    And I click "Find Beers"
+    Then I should see the following beers in the table:
+      | Name    | ABV  | IBU | Style | Brewery   |
+      | Beer 01 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 03 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 04 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 06 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 07 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 09 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 10 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 12 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 13 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 15 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 26 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 28 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 29 | 6.5% | 92  | IPA   | Stone     |
+      | Beer 31 | 9.5% | 98  | IPA   | Stone     |
+      | Beer 32 | 6.5% | 92  | IPA   | Stone     |

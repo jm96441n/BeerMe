@@ -1,5 +1,6 @@
 interface IPageContentProps {
   beers: Array<IBeer>;
+  beerStyles: Array<IBeerStyle>;
   page: string;
   beer: IBeer;
   onListItemClick: (id: number) => void;

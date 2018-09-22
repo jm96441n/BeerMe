@@ -1,7 +1,7 @@
 import React from 'react';
 import BeerListItem from './BeerListItem';
 import PaginationLinks from '../../PageElements/components/PaginationLinks';
-import Search from '../../PageElements/components/Search';
+import Search from '../../Search/components/Search';
 
 export default class BeerList extends React.Component<IBeerListProps> {
 
@@ -51,6 +51,7 @@ export default class BeerList extends React.Component<IBeerListProps> {
             <div className='col-md-12'>
               <Search
                 search={ this.search }
+                beerStyles={ this.props.beerStyles }
               />
             </div>
           </div>

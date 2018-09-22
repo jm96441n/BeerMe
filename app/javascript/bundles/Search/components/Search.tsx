@@ -1,7 +1,9 @@
 import React from 'react';
+import StyleSelect from './StyleSelect'
 
 const initialState: ISearchState = {
-  name: ''
+  name: '',
+  beerStyle: ''
 }
 
 export default class Search extends React.Component<ISearchProps, ISearchState> {
@@ -15,9 +17,14 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
     this.setState({ name });
   }
 
+  handleStyleChange = (beerStyle: string) => {
+    this.setState({ beerStyle });
+  }
+
   searchSubmission = () => {
     let searchTerms: any = {
-      name: this.state.name
+      name: this.state.name,
+      beerStyle: this.state.beerStyle
     }
     this.props.search(searchTerms)
   }
@@ -29,7 +36,16 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
           <label htmlFor='name'>
             Name
           </label>
-          <input id='name' onChange={ this.onNameChange }/>
+          <input id='name' name='name' onChange={ this.onNameChange }/>
+        </div>
+        <div id='style-search' className='col-md-4'>
+          <label htmlFor='style'>
+            Style
+          </label>
+          <StyleSelect
+            beerStyles={this.props.beerStyles}
+            setStyle={this.handleStyleChange}
+          />
         </div>
         <div id='submit' className='col-md-2'>
           <button type='button' className='btn btn-primary' onClick={ this.searchSubmission }>

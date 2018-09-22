@@ -1,9 +1,9 @@
 class Beer < ApplicationRecord
-
-  # Fuzzy search for beers by name
-  scope :search_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
+  include FuzzySearchByName
 
   belongs_to :brewery, optional: true
   belongs_to :beer_style, optional: true
   belongs_to :category, optional: true
+
+  scope :search_by_style, -> (style) { joins(:beer_style).where('beer_styles.name ILIKE ?', "%#{style}%") }
 end

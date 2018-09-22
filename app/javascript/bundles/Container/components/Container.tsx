@@ -9,6 +9,7 @@ interface IContainerProps { }
 const initialState: IContainerState = {
   page: 'home',
   beers: [],
+  beerStyles: [],
   beer: {} as IBeer,
   recommendedBeers: [],
   currentPage: 1,
@@ -40,6 +41,7 @@ export default class Container extends React.Component<IContainerProps, IContain
     this.setState({
       page: 'home',
       beers: [],
+      beerStyles: [],
       beer: {} as IBeer,
       recommendedBeers: [],
       currentPage: 1,
@@ -49,9 +51,10 @@ export default class Container extends React.Component<IContainerProps, IContain
 
   getBeers = (page: number = 1, searchTerms: any = {}) => {
     let name: string = searchTerms.name ? searchTerms.name : '';
+    let style: string = searchTerms.beerStyle ? searchTerms.beerStyle : '';
     return request({
       method: 'GET',
-      url: `/beers.json?page=${page}&name=${name}`,
+      url: `/beers.json?page=${page}&name=${name}&style=${style}`,
       responseType: 'json'
     }).then((response) => {
       let currentPage: number = response['data']['meta']['current_page'];
@@ -64,6 +67,19 @@ export default class Container extends React.Component<IContainerProps, IContain
         currentPage: currentPage,
         lastPage: lastPage
       } as IContainerState)
+
+      this.getBeerStyles()
+    })
+  }
+
+  getBeerStyles = () => {
+    return request({
+      method: 'GET',
+      url: '/beer_styles',
+      responseType: 'json'
+    }).then((response) => {
+      let beerStyles = response['data']['data']
+      this.setState({ beerStyles })
     })
   }
 
@@ -90,6 +106,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
+        beerStyles: [],
         beer: beer,
         recommendedBeers: recommendedBeers,
         currentPage: 1,
@@ -110,6 +127,7 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
+        beerStyles: [],
         beer: beer,
         recommendedBeers: recommendedBeers,
         currentPage: 1,
@@ -128,6 +146,7 @@ export default class Container extends React.Component<IContainerProps, IContain
             <PageContent
               page={ this.state.page }
               beers={ this.state.beers }
+              beerStyles={ this.state.beerStyles }
               beer={ this.state.beer }
               onListItemClick={ this.onListItemClick }
               onPaginationClick={ this.getBeers }
