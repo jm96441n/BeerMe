@@ -1,0 +1,3 @@
+interface ISearchState {
+  name: string;
+}

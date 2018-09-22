@@ -31,11 +31,15 @@ And /^I click "([^"]*)"( within "([^"]*)")?$/ do |link_text, selector|
   if selector
     id = selector.downcase.split(' ').join('_')
     within("##{id}") do
-      find('a', text: link_text, match: :prefer_exact).click
+      find(:link_or_button, text: link_text, match: :prefer_exact).click
     end
   else
-    find('a', text: link_text, match: :prefer_exact).click
+    find(:link_or_button, text: link_text, match: :prefer_exact).click
   end
+end
+
+And /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, input|
+  fill_in field, with: input
 end
 
 Then /^I should see the following beers in the table:$/ do |expected_table|

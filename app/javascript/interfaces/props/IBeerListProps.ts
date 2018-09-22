@@ -4,4 +4,5 @@ interface IBeerListProps {
   currentPage: number;
   lastPage: number;
   onPaginationClick: (pageNumber: number) => void;
+  search: (searchTerms: any) => void;
 }

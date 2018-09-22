@@ -6,4 +6,5 @@ interface IPageContentProps {
   currentPage: number;
   lastPage: number;
   onPaginationClick: (pageNumber: number) => void;
+  search: (pageNumber: number, searchTerms: any) => void;
 }

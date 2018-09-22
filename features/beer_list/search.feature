@@ -66,20 +66,27 @@ Feature: Searching works from the beer list page
       | Beer 60 | 9.5 | 98  | IPA        | Stone     | cheery      |
 
   @javascript
-  Scenario: I can search by name
+  Scenario Outline: I can fuzzy search by name
     Given I visit the home page
     And I click "Find a Beer"
-    And I fill in "Name" with "Beer 5"
-    Then I should see the following beers within the table:
-      | Name    | ABV | IBU |
-      | Beer 5  | 4.5 | 82  |
-      | Beer 50 | 9.5 | 98  |
-      | Beer 51 | 6.5 | 92  |
-      | Beer 52 | 4.5 | 82  |
-      | Beer 53 | 9.5 | 98  |
-      | Beer 54 | 6.5 | 92  |
-      | Beer 55 | 4.5 | 82  |
-      | Beer 56 | 9.5 | 98  |
-      | Beer 57 | 6.5 | 92  |
-      | Beer 58 | 4.5 | 82  |
-      | Beer 59 | 9.5 | 98  |
+    And I fill in "Name" with "<beer search>"
+    And I click "Find Beers"
+    Then I should see the following beers in the table:
+      | Name    | ABV  | IBU |
+      | Beer 5  | 4.5% | 82  |
+      | Beer 50 | 9.5% | 98  |
+      | Beer 51 | 6.5% | 92  |
+      | Beer 52 | 4.5% | 82  |
+      | Beer 53 | 9.5% | 98  |
+      | Beer 54 | 6.5% | 92  |
+      | Beer 55 | 4.5% | 82  |
+      | Beer 56 | 9.5% | 98  |
+      | Beer 57 | 6.5% | 92  |
+      | Beer 58 | 4.5% | 82  |
+      | Beer 59 | 9.5% | 98  |
+
+    Examples:
+      | beer search |
+      | Beer 5      |
+      | beer 5      |
+      | eer 5       |

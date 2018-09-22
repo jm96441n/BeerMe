@@ -6,8 +6,6 @@ import Beer from '../../Beers/components/Beer'
 export default class PageContent extends React.Component<IPageContentProps> {
   constructor(props: IPageContentProps) {
     super(props);
-
-    this.state = {};
   }
 
   onListItemClick = (id: number) => {
@@ -16,6 +14,11 @@ export default class PageContent extends React.Component<IPageContentProps> {
 
   onPaginationClick = (pageNumber: number) => {
     this.props.onPaginationClick(pageNumber);
+  }
+
+  search = (searchTerms: any) => {
+    const paginationPage: number = 1;
+    this.props.search(paginationPage, searchTerms)
   }
 
   render() {
@@ -27,6 +30,7 @@ export default class PageContent extends React.Component<IPageContentProps> {
           currentPage={ this.props.currentPage }
           lastPage={ this.props.lastPage }
           onPaginationClick={ this.onPaginationClick }
+          search={ this.search }
         />
       )
     }else if(this.props.page == 'beer') {

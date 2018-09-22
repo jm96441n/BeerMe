@@ -1,6 +1,7 @@
 import React from 'react';
 import BeerListItem from './BeerListItem';
-import PaginationLinks from '../../PageElements/components/PaginationLinks'
+import PaginationLinks from '../../PageElements/components/PaginationLinks';
+import Search from '../../PageElements/components/Search';
 
 export default class BeerList extends React.Component<IBeerListProps> {
 
@@ -14,6 +15,10 @@ export default class BeerList extends React.Component<IBeerListProps> {
 
   onPaginationClick = (pageNumber: number) => {
     this.props.onPaginationClick(pageNumber);
+  }
+
+  search = (searchTerms: any) => {
+    this.props.search(searchTerms);
   }
 
   render() {
@@ -38,6 +43,13 @@ export default class BeerList extends React.Component<IBeerListProps> {
           <div className='row'>
             <div className='col-md-12'>
               <h3>Gaze Upon Yonder List of Ales</h3>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-md-12'>
+              <Search
+                search={ this.search }
+              />
             </div>
           </div>
           <div className='row'>

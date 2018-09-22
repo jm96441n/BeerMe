@@ -12,7 +12,7 @@ const initialState: IContainerState = {
   beer: {} as IBeer,
   recommendedBeers: [],
   currentPage: 1,
-  lastPage: 0
+  lastPage: 0,
 }
 
 export default class Container extends React.Component<IContainerProps, IContainerState> {
@@ -47,10 +47,11 @@ export default class Container extends React.Component<IContainerProps, IContain
     } as IContainerState)
   }
 
-  getBeers = (page: number = 1) => {
+  getBeers = (page: number = 1, searchTerms: any = {}) => {
+    let name: string = searchTerms.name ? searchTerms.name : '';
     return request({
       method: 'GET',
-      url: `/beers.json?page=${page}`,
+      url: `/beers.json?page=${page}&name=${name}`,
       responseType: 'json'
     }).then((response) => {
       let currentPage: number = response['data']['meta']['current_page'];
@@ -132,6 +133,7 @@ export default class Container extends React.Component<IContainerProps, IContain
               onPaginationClick={ this.getBeers }
               currentPage={ this.state.currentPage }
               lastPage={ this.state.lastPage }
+              search= { this.getBeers }
             />
           </div>
         </div>
