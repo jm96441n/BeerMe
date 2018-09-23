@@ -35,6 +35,16 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
     this.props.search(searchTerms)
   }
 
+  clearSearch = () => {
+    let searchTerms: any = {
+      name: '',
+      beerStyle: '',
+      category: ''
+    }
+    this.setState(searchTerms);
+    this.props.search(searchTerms);
+  }
+
   render() {
     return(
       <div id='search' className='row'>
@@ -51,9 +61,10 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
             Style
           </label>
           <TypeSelect
-            types={this.props.beerStyles}
-            setType={this.handleStyleChange}
+            types={ this.props.beerStyles }
+            setType={ this.handleStyleChange }
             type='style'
+            selectedType={ this.state.beerStyle }
           />
         </div>
         <div id='category-search' className='col-md-3'>
@@ -64,12 +75,22 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
             types={this.props.categories}
             setType={this.handleCategoryChange}
             type='category'
+            selectedType={ this.state.category }
           />
         </div>
-        <div id='submit' className='col-md-2 align-text-bottom'>
-          <button id='beer-search-button' type='button' className='btn btn-primary' onClick={ this.searchSubmission }>
-            Find Beers
-          </button>
+        <div className='row'>
+          <div id='submit' className='col-md-1'>
+            <button id='beer-search-button' type='button' className='btn btn-primary search-btns' onClick={ this.searchSubmission }>
+              Find Beers
+            </button>
+          </div>
+        </div>
+        <div className='row'>
+          <div id='clear'className='col-md-1'>
+            <button id='clear-search-button' type='button' className='btn btn-secondary search-btns' onClick={ this.clearSearch }>
+              Clear Search
+            </button>
+          </div>
         </div>
       </div>
     )

@@ -148,6 +148,7 @@ Feature: Searching works from the beer list page
     And I click "Find Beers"
     And I should see "Beer 50"
     When I click "Clear Search"
+    # Earlier search will bring pagination down to a single page
     Then I should see "First Page(1)" within "pagination"
     And I should see "Last Page(4)" within "pagination"
     # Stout that would not have been shown after search

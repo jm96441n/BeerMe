@@ -1,14 +1,21 @@
 import React from 'react';
 import Select from 'react-select';
 
-const initialState: ITypeSelectState = {
-  selectedType: null
-}
-
 export default class StyleSelect extends React.Component<ITypeSelectProps, ITypeSelectState> {
   constructor(props: ITypeSelectProps) {
     super(props)
-    this.state = initialState;
+    let selected: ITypeSelect | null = null;
+
+    if (props.selectedType.length > 0) {
+      selected = {
+        value: props.selectedType,
+        label: props.selectedType
+      }
+    }
+
+    this.state = {
+      selectedType: selected
+    }
   }
 
   handleChange = (selectedType: any) => {
