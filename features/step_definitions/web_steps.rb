@@ -2,19 +2,13 @@ When /^I (visit|am on) the home page$/ do |_visit_or_on|
   visit root_path
 end
 
-Then /^I should( not)? see "([^"]*)"$/ do |should_not, text|
-  if should_not
-    expect(page).to_not have_text(text, exact: true)
-  else
-    expect(page).to have_text(text, exact: true)
-  end
-end
-
-Then /^I should( not)? see "([^"]*)" on the page$/ do |should_not, text|
-  if should_not
-    expect(page).to_not have_text(text)
-  else
-    expect(page).to have_text(text)
+Then /^I should( not)? see "([^"]*)"( within "([^"]*)")?$/ do |should_not, text, scope|
+  within(get_scope(scope)) do
+    if should_not
+      expect(page).to_not have_text(text)
+    else
+      expect(page).to have_text(text)
+    end
   end
 end
 
@@ -102,4 +96,8 @@ def parse_table(table)
     end
     row_hash
   end
+end
+
+def get_scope(scope)
+  scope.present? ? "##{scope}" : 'body'
 end

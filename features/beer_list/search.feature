@@ -137,3 +137,18 @@ Feature: Searching works from the beer list page
       | Beer 29 | 6.5% | 92  | IPA   | Stone   | American Ale |
       | Beer 31 | 9.5% | 98  | IPA   | Stone   | American Ale |
       | Beer 32 | 6.5% | 92  | IPA   | Stone   | American Ale |
+
+  @javascript
+  Scenario: Clearing the search should reset the search settings and show all the beers again
+    Given I visit the home page
+    And I click "Find a Beer"
+    And I select "American Ale" from "Category"
+    And I select "IPA" from "Style"
+    And I fill in "Name" with "Beer 5"
+    And I click "Find Beers"
+    And I should see "Beer 50"
+    When I click "Clear Search"
+    Then I should see "First Page(1)" within "pagination"
+    And I should see "Last Page(4)" within "pagination"
+    # Stout that would not have been shown after search
+    And I should see "Beer 02" within "beer-list"

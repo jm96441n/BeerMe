@@ -20,10 +20,10 @@ Feature: Navigating to the random beer page should retrieve a random beer for th
       | Beer 1 | 6.5 | 92  | IPA        | Stone     | American Ale  |
     And I visit the home page
     When I click "Get a Random Beer"
-    Then I should see "Name: Beer 1" on the page
-    And I should see "ABV%: 6.5" on the page
-    And I should see "IBU: 92" on the page
-    And I should not see "Description: " on the page
+    Then I should see "Name: Beer 1"
+    And I should see "ABV%: 6.5"
+    And I should see "IBU: 92"
+    And I should not see "Description: "
 
   @javascript
   Scenario: Navigation to the R
@@ -32,7 +32,7 @@ Feature: Navigating to the random beer page should retrieve a random beer for th
       | Beer 1 | 6.5 | 92  | IPA        | Stone     | American Ale  | tasty       |
     And I visit the home page
     When I click "Get a Random Beer"
-    Then I should see "Name: Beer 1" on the page
-    And I should see "ABV%: 6.5" on the page
-    And I should see "IBU: 92" on the page
-    And I should see "Description: tasty" on the page
+    Then I should see "Name: Beer 1"
+    And I should see "ABV%: 6.5"
+    And I should see "IBU: 92"
+    And I should see "Description: tasty"
