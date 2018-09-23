@@ -12,4 +12,8 @@ class SerializableBeer < JSONAPI::Serializable::Resource
   attribute :beer_style do
     @object.beer_style&.name
   end
+
+  attribute :category do
+    @object.category&.name
+  end
 end

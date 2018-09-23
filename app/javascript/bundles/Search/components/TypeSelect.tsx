@@ -1,25 +1,25 @@
 import React from 'react';
 import Select from 'react-select';
 
-const initialState: IStyleSelectState = {
-  selectedStyle: null
+const initialState: ITypeSelectState = {
+  selectedType: null
 }
 
-export default class StyleSelect extends React.Component<IStyleSelectProps, IStyleSelectState> {
-  constructor(props: IStyleSelectProps) {
+export default class StyleSelect extends React.Component<ITypeSelectProps, ITypeSelectState> {
+  constructor(props: ITypeSelectProps) {
     super(props)
     this.state = initialState;
   }
 
-  handleChange = (selectedStyle: any) => {
-    this.setState({ selectedStyle });
-    this.props.setStyle(selectedStyle.value);
+  handleChange = (selectedType: any) => {
+    this.setState({ selectedType });
+    this.props.setType(selectedType.value);
   }
 
   generateSelectNodes = () => {
-    let nodes: any[] = this.props.beerStyles.map((styleResponse: any) => {
-      let style: IBeerStyle = styleResponse['attributes'];
-      let newNode: IStyleSelect = {
+    let nodes: any[] = this.props.types.map((styleResponse: any) => {
+      let style: IBeerType = styleResponse['attributes'];
+      let newNode: ITypeSelect = {
         label: `${style['name']}`,
         value: `${style['name']}`,
       }
@@ -37,7 +37,7 @@ export default class StyleSelect extends React.Component<IStyleSelectProps, ISty
   }
 
   render() {
-    const selectedOption: IStyleSelect | null = this.state.selectedStyle;
+    const selectedOption: ITypeSelect | null = this.state.selectedType;
 
     return (
       <Select
@@ -45,7 +45,7 @@ export default class StyleSelect extends React.Component<IStyleSelectProps, ISty
         onChange={this.handleChange}
         options={this.generateSelectNodes()}
         isSearchable
-        id='style'
+        id={this.props.type}
       />
     )
   }

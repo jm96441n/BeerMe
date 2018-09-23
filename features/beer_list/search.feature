@@ -13,57 +13,57 @@ Feature: Searching works from the beer list page
       | Stone     | 1           |
       | Big Money | 2           |
     And the following "Beers" exist with:
-      | name    | abv | ibu | beer_style | brewery   | description |
-      | Beer 01 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 02 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 03 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 04 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 05 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 06 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 07 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 08 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 09 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 10 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 11 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 12 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 13 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 14 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 15 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 26 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 27 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 28 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 29 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 30 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 31 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 32 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 33 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 34 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 35 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 36 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 37 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 38 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 39 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 40 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 41 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 42 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 43 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 44 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 45 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 46 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 47 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 48 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 49 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 50 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 51 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 52 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 53 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 54 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 55 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 56 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 57 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 58 | 4.5 | 82  | Stout      | Big Money | beery       |
-      | Beer 59 | 9.5 | 98  | IPA        | Stone     | cheery      |
-      | Beer 60 | 9.5 | 98  | IPA        | Stone     | cheery      |
+      | name    | abv | ibu | beer_style | brewery   | description | category      |
+      | Beer 01 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 02 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 03 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 04 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 05 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 06 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 07 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 08 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 09 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 10 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 11 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 12 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 13 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 14 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 15 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 26 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 27 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 28 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 29 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 30 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 31 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 32 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 33 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 34 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 35 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 36 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 37 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 38 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 39 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 40 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 41 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 42 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 43 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 44 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 45 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 46 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 47 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 48 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 49 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 50 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 51 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 52 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 53 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 54 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 55 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 56 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 57 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale  |
+      | Beer 58 | 4.5 | 82  | Stout      | Big Money | beery       | British Stout |
+      | Beer 59 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
+      | Beer 60 | 9.5 | 98  | IPA        | Stone     | cheery      | American Ale  |
 
   @javascript
   Scenario Outline: I can fuzzy search by name
@@ -113,3 +113,27 @@ Feature: Searching works from the beer list page
       | Beer 29 | 6.5% | 92  | IPA   | Stone     |
       | Beer 31 | 9.5% | 98  | IPA   | Stone     |
       | Beer 32 | 6.5% | 92  | IPA   | Stone     |
+
+  @javascript
+  Scenario: I can search by beer category
+    Given I visit the home page
+    And I click "Find a Beer"
+    When I select "American Ale" from "Category"
+    And I click "Find Beers"
+    Then I should see the following beers in the table:
+      | Name    | ABV  | IBU | Style | Brewery | Category     |
+      | Beer 01 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 03 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 04 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 06 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 07 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 09 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 10 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 12 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 13 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 15 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 26 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 28 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 29 | 6.5% | 92  | IPA   | Stone   | American Ale |
+      | Beer 31 | 9.5% | 98  | IPA   | Stone   | American Ale |
+      | Beer 32 | 6.5% | 92  | IPA   | Stone   | American Ale |

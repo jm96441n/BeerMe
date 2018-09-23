@@ -7,4 +7,5 @@ interface IBeer {
   description: string;
   beer_style: string;
   brewery_name: string;
+  category: string;
 }

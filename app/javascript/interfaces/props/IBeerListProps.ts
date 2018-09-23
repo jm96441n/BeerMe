@@ -1,6 +1,7 @@
 interface IBeerListProps {
   beers: Array<IBeer>;
-  beerStyles: Array<IBeerStyle>;
+  beerStyles: Array<IBeerType>;
+  categories: Array<IBeerType>;
   onListItemClick: (id: number) => void;
   currentPage: number;
   lastPage: number;

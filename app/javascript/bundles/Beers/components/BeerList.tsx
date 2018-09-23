@@ -28,14 +28,15 @@ export default class BeerList extends React.Component<IBeerListProps> {
       i++;
       return (
         <BeerListItem
-          id={i}
-          key={index}
-          name={beer['name']}
-          abv={beer['abv']}
-          ibu={beer['ibu']}
-          beer_style={beer['beer_style']}
-          brewery_name={beer['brewery_name']}
-          onClick={this.onListItemClick}
+          id={ i }
+          key={ index }
+          name={ beer['name'] }
+          abv={ beer['abv'] }
+          ibu={ beer['ibu'] }
+          beer_style={ beer['beer_style'] }
+          brewery_name={ beer['brewery_name'] }
+          category={ beer['category'] }
+          onClick={ this.onListItemClick }
         />
       )
     })
@@ -52,6 +53,7 @@ export default class BeerList extends React.Component<IBeerListProps> {
               <Search
                 search={ this.search }
                 beerStyles={ this.props.beerStyles }
+                categories={ this.props.categories }
               />
             </div>
           </div>
@@ -65,6 +67,9 @@ export default class BeerList extends React.Component<IBeerListProps> {
                     </th>
                     <th scope='col' className='text-center'>
                       Style
+                    </th>
+                    <th scope='col' className='text-center'>
+                      Category
                     </th>
                     <th scope='col'>
                       ABV

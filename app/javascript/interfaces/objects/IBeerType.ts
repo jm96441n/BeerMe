@@ -1,0 +1,3 @@
+interface IBeerType {
+  name: String;
+}

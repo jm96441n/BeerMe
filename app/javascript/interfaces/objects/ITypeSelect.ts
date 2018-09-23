@@ -1,4 +1,4 @@
-interface IStyleSelect {
+interface ITypeSelect {
   label: string;
   value: string;
 }

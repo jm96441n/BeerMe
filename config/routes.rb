@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :beer_styles, only: :index
 
+  resources :categories, only: :index
+
   resources :beers, only: [:index, :show]
 
   resource :random_beer, only: :show

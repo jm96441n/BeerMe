@@ -13,17 +13,17 @@ Feature: A user can view beers on the beer list page
       | Stone     | 1           |
       | Big Money | 2           |
     And the following "Beers" exist with:
-      | name   | abv | ibu | beer_style | brewery   | description |
-      | Beer 1 | 6.5 | 92  | IPA        | Stone     | testy       |
-      | Beer 2 | 5.7 | 90  | Stout      | Big Money | beery       |
-      | Beer 3 | 6.7 | 94  | IPA        | Stone     | cheery      |
+      | name   | abv | ibu | beer_style | brewery   | description | category     |
+      | Beer 1 | 6.5 | 92  | IPA        | Stone     | testy       | American Ale |
+      | Beer 2 | 5.7 | 90  | Stout      | Big Money | beery       |              |
+      | Beer 3 | 6.7 | 94  | IPA        | Stone     | cheery      | American Ale |
 
   @javascript
   Scenario: A user can view the list of beers on the list page
     Given I am on the home page
     When I click "Find a Beer"
     Then I should see the following beers in the table:
-      | Name   | Style | ABV  | IBU | Brewery   |
-      | Beer 1 | IPA   | 6.5% | 92  | Stone     |
-      | Beer 2 | Stout | 5.7% | 90  | Big Money |
-      | Beer 3 | IPA   | 6.7% | 94  | Stone     |
+      | Name   | Style | ABV  | IBU | Brewery   | Category     |
+      | Beer 1 | IPA   | 6.5% | 92  | Stone     | American Ale |
+      | Beer 2 | Stout | 5.7% | 90  | Big Money |              |
+      | Beer 3 | IPA   | 6.7% | 94  | Stone     | American Ale |

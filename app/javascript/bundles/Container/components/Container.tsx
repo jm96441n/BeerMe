@@ -10,6 +10,7 @@ const initialState: IContainerState = {
   page: 'home',
   beers: [],
   beerStyles: [],
+  categories: [],
   beer: {} as IBeer,
   recommendedBeers: [],
   currentPage: 1,
@@ -41,7 +42,8 @@ export default class Container extends React.Component<IContainerProps, IContain
     this.setState({
       page: 'home',
       beers: [],
-      beerStyles: [],
+      categories: this.state.categories,
+      beerStyles: this.state.beerStyles,
       beer: {} as IBeer,
       recommendedBeers: [],
       currentPage: 1,
@@ -52,9 +54,10 @@ export default class Container extends React.Component<IContainerProps, IContain
   getBeers = (page: number = 1, searchTerms: any = {}) => {
     let name: string = searchTerms.name ? searchTerms.name : '';
     let style: string = searchTerms.beerStyle ? searchTerms.beerStyle : '';
+    let category: string = searchTerms.category ? searchTerms.category : '';
     return request({
       method: 'GET',
-      url: `/beers.json?page=${page}&name=${name}&style=${style}`,
+      url: `/beers.json?page=${page}&name=${name}&style=${style}&category=${category}`,
       responseType: 'json'
     }).then((response) => {
       let currentPage: number = response['data']['meta']['current_page'];
@@ -67,8 +70,10 @@ export default class Container extends React.Component<IContainerProps, IContain
         currentPage: currentPage,
         lastPage: lastPage
       } as IContainerState)
-
-      this.getBeerStyles()
+      // only load beer styles and categories if they have not yet been loaded
+      if (this.state.beerStyles.length < 2) {
+        this.getBeerStyles()
+      }
     })
   }
 
@@ -80,6 +85,18 @@ export default class Container extends React.Component<IContainerProps, IContain
     }).then((response) => {
       let beerStyles = response['data']['data']
       this.setState({ beerStyles })
+      this.getCategories();
+    })
+  }
+
+  getCategories = () => {
+    return request({
+      method: 'GET',
+      url: '/categories',
+      responseType: 'json'
+    }).then((response) => {
+      let categories = response['data']['data']
+      this.setState({ categories })
     })
   }
 
@@ -106,7 +123,8 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
-        beerStyles: [],
+        beerStyles: this.state.beerStyles,
+        categories: this.state.categories,
         beer: beer,
         recommendedBeers: recommendedBeers,
         currentPage: 1,
@@ -127,7 +145,8 @@ export default class Container extends React.Component<IContainerProps, IContain
       this.setState({
         page: 'beer',
         beers: [],
-        beerStyles: [],
+        beerStyles: this.state.beerStyles,
+        categories: this.state.categories,
         beer: beer,
         recommendedBeers: recommendedBeers,
         currentPage: 1,
@@ -147,6 +166,7 @@ export default class Container extends React.Component<IContainerProps, IContain
               page={ this.state.page }
               beers={ this.state.beers }
               beerStyles={ this.state.beerStyles }
+              categories={ this.state.categories }
               beer={ this.state.beer }
               onListItemClick={ this.onListItemClick }
               onPaginationClick={ this.getBeers }

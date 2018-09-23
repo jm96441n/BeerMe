@@ -5,7 +5,7 @@ class BeersController < ApplicationController
   def index
     @beers = paginate filtered_beers
     render jsonapi: @beers,
-           fields: { beers: %i[ibu abv name id brewery_name beer_style] },
+           fields: { beers: %i[ibu abv name id brewery_name beer_style category] },
            meta: { current_page: params[:page].to_i, last_page: @beers.total_pages }
   end
 
@@ -22,6 +22,20 @@ class BeersController < ApplicationController
 
   # Returns an AR relation
   def filtered_beers
-    Beer.search_by_style(params['style']).search_by_name(params['name']).order(:name)
+    filtered_beers = Beer.order(:name)
+
+    if params['name'].present?
+      filtered_beers = filtered_beers.search_by_name(params['name'])
+    end
+
+    if params['style'].present?
+      filtered_beers = filtered_beers.search_by_style(params['style'])
+    end
+
+    if params['category'].present?
+      filtered_beers = filtered_beers.search_by_category(params['category'])
+    end
+
+    filtered_beers
   end
 end

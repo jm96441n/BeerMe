@@ -1,9 +1,10 @@
 import React from 'react';
-import StyleSelect from './StyleSelect'
+import TypeSelect from './TypeSelect'
 
 const initialState: ISearchState = {
   name: '',
-  beerStyle: ''
+  beerStyle: '',
+  category: ''
 }
 
 export default class Search extends React.Component<ISearchProps, ISearchState> {
@@ -21,10 +22,15 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
     this.setState({ beerStyle });
   }
 
+  handleCategoryChange = (category: string) => {
+    this.setState({ category });
+  }
+
   searchSubmission = () => {
     let searchTerms: any = {
       name: this.state.name,
-      beerStyle: this.state.beerStyle
+      beerStyle: this.state.beerStyle,
+      category: this.state.category
     }
     this.props.search(searchTerms)
   }
@@ -32,7 +38,7 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
   render() {
     return(
       <div id='search' className='row'>
-        <div id='name-search' className='col-md-4'>
+        <div id='name-search' className='col-md-3'>
           <div>
             <label htmlFor='name'>
               Name
@@ -40,13 +46,24 @@ export default class Search extends React.Component<ISearchProps, ISearchState> 
           </div>
           <input id='name' name='name' onChange={ this.onNameChange }/>
         </div>
-        <div id='style-search' className='col-md-4'>
+        <div id='style-search' className='col-md-3'>
           <label htmlFor='style'>
             Style
           </label>
-          <StyleSelect
-            beerStyles={this.props.beerStyles}
-            setStyle={this.handleStyleChange}
+          <TypeSelect
+            types={this.props.beerStyles}
+            setType={this.handleStyleChange}
+            type='style'
+          />
+        </div>
+        <div id='category-search' className='col-md-3'>
+          <label htmlFor='category'>
+            Category
+          </label>
+          <TypeSelect
+            types={this.props.categories}
+            setType={this.handleCategoryChange}
+            type='category'
           />
         </div>
         <div id='submit' className='col-md-2 align-text-bottom'>

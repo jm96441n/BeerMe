@@ -34,6 +34,9 @@ export default class BeerListItem extends React.Component<IBeerListItemProps, {}
           {this.props.beer_style}
         </td>
         <td className="text-center">
+          {this.props.category}
+        </td>
+        <td className="text-center">
           { this.props.abv }%
         </td>
         <td className="text-center">

@@ -6,4 +6,5 @@ class Beer < ApplicationRecord
   belongs_to :category, optional: true
 
   scope :search_by_style, -> (style) { joins(:beer_style).where('beer_styles.name ILIKE ?', "%#{style}%") }
+  scope :search_by_category, -> (category) { joins(:category).where('categories.name ILIKE ?', "%#{category}%") }
 end
