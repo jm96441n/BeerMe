@@ -28,7 +28,7 @@ gem 'webpacker', '~> 3.0'
 gem 'turbolinks', '~> 5'
 
 # Acts as addressable gem for addresses
-gem 'acts_as_addressable', git: 'git@github.com:mobilityhouse/acts_as_addressable.git'
+gem 'acts_as_addressable', github: 'mobilityhouse/acts_as_addressable'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -58,7 +58,7 @@ gem 'kaminari'
 gem 'api-pagination'
 
 # Service objects!
-gem 'active_services', git: 'git@github.com:jm96441n/active_services', branch: 'master'
+gem 'active_services', github: 'jm96441n/active_services', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
