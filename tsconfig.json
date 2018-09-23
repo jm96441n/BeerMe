@@ -21,7 +21,8 @@
   "exclude": [
     "**/*.spec.ts",
     "node_modules",
-    "public"
+    "public",
+    "vendor/bundle"
   ],
   "compileOnSave": false
 }
