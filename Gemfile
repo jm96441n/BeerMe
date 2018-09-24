@@ -46,7 +46,7 @@ gem 'jsonapi-rails'
 gem 'rubocop', '~> 0.52.1', require: false
 
 # Bootstrap styling is hard
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.2'
 
 # JQuery because bootstrap needs it
 gem 'jquery-rails'
